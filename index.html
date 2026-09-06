@@ -25,6 +25,9 @@
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
       }
     })();
   </script>
@@ -36,7 +39,7 @@
     <div class="container nav-wrap">
       <a href="#" class="brand-link" aria-label="Open eIDAS Accueil">
         <img src="assets/logo-horizontal.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-light">
-        <img src="assets/logo-horizontal-dark.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-dark" style="display: none;">
+        <img src="assets/logo-horizontal-dark.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-dark">
       </a>
 
       <nav aria-label="Navigation principale">
@@ -678,22 +681,16 @@ curl -s -X POST http://localhost:8318/api/v1/timestamp \
     const themeBtn = document.getElementById('theme-toggle');
     const sunIcon = themeBtn.querySelector('.sun-icon');
     const moonIcon = themeBtn.querySelector('.moon-icon');
-    const lightLogos = document.querySelectorAll('.logo-light');
-    const darkLogos = document.querySelectorAll('.logo-dark');
 
     function updateThemeUI(theme) {
       if (theme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
         sunIcon.style.display = 'none';
         moonIcon.style.display = 'block';
-        lightLogos.forEach(el => el.style.display = 'none');
-        darkLogos.forEach(el => el.style.display = 'block');
       } else {
         document.documentElement.setAttribute('data-theme', 'light');
         sunIcon.style.display = 'block';
         moonIcon.style.display = 'none';
-        lightLogos.forEach(el => el.style.display = 'block');
-        darkLogos.forEach(el => el.style.display = 'none');
       }
     }
 

@@ -18,6 +18,9 @@
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
       }
     })();
   </script>
@@ -29,7 +32,7 @@
     <div class="container nav-wrap">
       <a href="index.html" class="brand-link" aria-label="Open eIDAS Accueil">
         <img src="assets/logo-horizontal.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-light">
-        <img src="assets/logo-horizontal-dark.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-dark" style="display: none;">
+        <img src="assets/logo-horizontal-dark.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-dark">
       </a>
 
       <nav aria-label="Navigation principale">
@@ -221,66 +224,234 @@
     </section>
 
     <!-- Processus de Certification et Qualification -->
-    <section class="section">
+    <section class="section" id="processus">
       <div class="container">
         <div class="section-header">
           <span class="section-tag">Audit & Accréditation</span>
-          <h2 class="section-title">Le Parcours vers la Qualification Officielle</h2>
+          <h2 class="section-title">Le Parcours vers la Qualification Officielle eIDAS</h2>
           <p class="section-desc">
-            Comment un prestataire accède à la liste de confiance européenne (EU Trust List - TSL).
+            De la formalisation documentaire à l'inscription sur la Trusted List européenne (TSL) : la chaîne de conformité complète.
           </p>
         </div>
 
         <p style="color: var(--text-muted); max-width: 850px; margin: 0 auto 2rem auto; text-align: center; font-size: 1.05rem; line-height: 1.7;">
-          Pour devenir un Prestataire de Services de Confiance Qualifié (PSCo / QTSP), le candidat doit franchir un cycle rigoureux d'évaluation de la conformité mené par un organisme accrédité (tel que <strong>LSTI</strong>, accrédité par le COFRAC n° 5-0546 et membre de l'ACAB'c) selon les normes <strong>ISO/IEC 17065</strong> et <strong>ETSI EN 319 403-1</strong>.
+          Pour accéder au statut souverain de <strong>Prestataire de Services de Confiance Qualifié (PSCo / QTSP)</strong>, chaque candidat est soumis à un processus strict d'évaluation de la conformité mené par un organisme tiers accrédité par le COFRAC (tel que <a href="https://www.lsti-certification.fr/fr-FR/Nos-offres-entreprises/Confiance-Numerique/Certification-eIDAS" target="_blank" rel="noopener noreferrer" style="color: var(--brand-blue); text-decoration: underline; font-weight: 600;">LSTI</a>, accrédité COFRAC n° 5-0546 et membre fondateur de l'ACAB'c) selon les normes <strong>ISO/IEC 17065</strong> et <strong>ETSI EN 319 403-1</strong>.
         </p>
 
-        <div class="process-grid">
-          <!-- Step 1 -->
-          <div class="process-step">
-            <div class="process-step-num">Étape 01</div>
-            <h3 class="process-step-title">Socle &amp; Documentation</h3>
-            <p class="process-step-desc">
-              Mise en œuvre des exigences de politique générale de la norme <strong>ETSI EN 319 401</strong> et du Règlement d'exécution UE 2025/2530 : rédaction de la PSSI, analyse de risques formelle, politique d'horodatage (TSP) et de certification (CP/CPS), plan de terminaison.
-            </p>
+        <!-- Vue d'Ensemble du Flux de Confiance -->
+        <div class="pipeline-track">
+          <div class="pipeline-node">
+            <div class="pipeline-node-icon">🏢</div>
+            <div class="pipeline-node-title">1. Open eIDAS</div>
+            <div class="pipeline-node-role">Candidat Prestataire</div>
           </div>
-
-          <!-- Step 2 -->
-          <div class="process-step">
-            <div class="process-step-num">Étape 02</div>
-            <h3 class="process-step-title">Audit Initial Documentaire</h3>
-            <p class="process-step-desc">
-              Examen approfondi à distance par l'Organisme d'Évaluation de la Conformité (OEC / LSTI) pour vérifier la conformité des procédures, des profils de certificats et valider la faisabilité opérationnelle.
-            </p>
+          <div class="pipeline-arrow">➔</div>
+          <div class="pipeline-node">
+            <div class="pipeline-node-icon">🔍</div>
+            <div class="pipeline-node-title">2. LSTI Certification</div>
+            <div class="pipeline-node-role">Auditeur Tiers OEC (COFRAC)</div>
           </div>
-
-          <!-- Step 3 -->
-          <div class="process-step">
-            <div class="process-step-num">Étape 03</div>
-            <h3 class="process-step-title">Audit sur Site &amp; Infrastructure</h3>
-            <p class="process-step-desc">
-              Contrôles physiques et logiques en datacenter : vérification des modules HSM qualifiés (Common Criteria EAL4+), cérémonies de clés sous double contrôle, métrologie UTC et sécurité des systèmes d'information.
-            </p>
+          <div class="pipeline-arrow">➔</div>
+          <div class="pipeline-node">
+            <div class="pipeline-node-icon">🏛️</div>
+            <div class="pipeline-node-title">3. ANSSI</div>
+            <div class="pipeline-node-role">Autorité de Contrôle</div>
           </div>
-
-          <!-- Step 4 -->
-          <div class="process-step">
-            <div class="process-step-num">Étape 04</div>
-            <h3 class="process-step-title">Rapport CAR &amp; Décision ANSSI</h3>
-            <p class="process-step-desc">
-              L'auditeur émet le <strong>Conformity Assessment Report (CAR)</strong>. Ce rapport est transmis à l'autorité nationale de supervision (<strong>l'ANSSI en France</strong>), qui prononce la qualification officielle et inscrit le service sur la <strong>Trust List européenne (TSL)</strong>.
-            </p>
+          <div class="pipeline-arrow">➔</div>
+          <div class="pipeline-node">
+            <div class="pipeline-node-icon">🇪🇺</div>
+            <div class="pipeline-node-title">4. Commission UE</div>
+            <div class="pipeline-node-role">Trust List (TSL LOTL)</div>
           </div>
         </div>
 
-        <div class="eidas-overview" style="margin-top: 2rem;">
-          <h3>
-            <span>🔄</span>
-            <span>Surveillance continue et renouvellement</span>
-          </h3>
-          <p>
-            La qualification eIDAS n'est jamais définitivement acquise : un <strong>audit de surveillance obligatoire est réalisé à 12 mois</strong>, suivi d'un <strong>audit complet de renouvellement (Full Audit) tous les 24 mois</strong>. Tout incident de sécurité ou dérive d'horloge doit être notifié sous 24 heures à l'ANSSI et à la CNIL.
-          </p>
+        <!-- Parcours Visuel et Étape par Étape -->
+        <div class="pathway-stepper">
+
+          <!-- Jalon 01 -->
+          <div class="pathway-milestone">
+            <div class="pathway-marker">01</div>
+            <div class="pathway-card">
+              <div class="pathway-meta">
+                <span class="pathway-badge-phase">Phase 01 • Cadrage & Référentiel</span>
+                <span class="pathway-badge-actor">🏢 Piloté par Open eIDAS</span>
+              </div>
+              <h3 class="pathway-title">Formalisation du Corpus Documentaire &amp; Analyse des Risques</h3>
+              <p class="pathway-desc">
+                Mise en conformité intégrale avec le socle européen de politique générale des prestataires de services de confiance. Rédaction exhaustive de la Politique de Sécurité des SI (PSSI), de la politique de certification (CP/CPS), de la politique d'horodatage (TSP), analyse formelle de risques selon la méthode EBIOS RM, et constitution du plan formel de fin d'activité (Termination Plan) souscrit pour une durée de 10 ans.
+              </p>
+              <div class="pathway-specs">
+                <span class="norm-tag">ETSI EN 319 401</span>
+                <span class="norm-tag">ETSI EN 319 421</span>
+                <span class="norm-tag">RFC 3161</span>
+                <span class="norm-tag">Règlement UE 2025/2530</span>
+                <span class="norm-tag">EBIOS RM</span>
+              </div>
+              <div class="pathway-deliverable">
+                <div class="pathway-deliverable-icon">📦</div>
+                <div class="pathway-deliverable-content">
+                  <h5>Livrables Obligatoires de l'Étape</h5>
+                  <p>PSSI validée, Politiques TSP/CP/CPS conformes aux profils ETSI, Registre d'analyse de risques et Garantie financière de terminaison d'activité.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jalon 02 -->
+          <div class="pathway-milestone">
+            <div class="pathway-marker">02</div>
+            <div class="pathway-card">
+              <div class="pathway-meta">
+                <span class="pathway-badge-phase">Phase 02 • Déploiement Cryptographique</span>
+                <span class="pathway-badge-actor">🔐 Open eIDAS &amp; Témoins Indépendants</span>
+              </div>
+              <h3 class="pathway-title">Qualification Matérielle HSM &amp; Cérémonie des Clés</h3>
+              <p class="pathway-desc">
+                Hébergement en datacenters souverains certifiés ISO 27001 et qualifiés SecNumCloud. Installation des modules matériels de sécurité (HSM) certifiés Critères Communs EAL4+ (QSCD). Cérémonie formelle de génération des clés cryptographiques sous contrôle conjoint (<em>dual custody / 2-man rule</em>) avec cartes à puce à secret partagé (Shamir M-of-N), synchronisation multi-sources UTC (GPS/Galileo redondés) et présence d'observateurs tiers.
+              </p>
+              <div class="pathway-specs">
+                <span class="norm-tag">EN 419 221-5 (QSCD)</span>
+                <span class="norm-tag">FIPS 140-2 Level 3</span>
+                <span class="norm-tag">ISO/IEC 27001</span>
+                <span class="norm-tag">SecNumCloud</span>
+                <span class="norm-tag">Dual Control M-of-N</span>
+              </div>
+              <div class="pathway-deliverable">
+                <div class="pathway-deliverable-icon">📦</div>
+                <div class="pathway-deliverable-content">
+                  <h5>Livrables Obligatoires de l'Étape</h5>
+                  <p>Procès-Verbal de Cérémonie signé par les officiers de clés et témoins, Empreintes publiques SHA-256 / SHA-3 des clés de signature et Certificats d'étalonnage UTC.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jalon 03 -->
+          <div class="pathway-milestone">
+            <div class="pathway-marker">03</div>
+            <div class="pathway-card">
+              <div class="pathway-meta">
+                <span class="pathway-badge-phase">Phase 03 • Évaluation d'Accréditation</span>
+                <span class="pathway-badge-actor">🔍 LSTI Certification (OEC / CAB n° 5-0546)</span>
+              </div>
+              <h3 class="pathway-title">Audit Initial Documentaire &amp; Contrôles Physiques sur Site</h3>
+              <p class="pathway-desc">
+                Intervention de l'Organisme d'Évaluation de la Conformité accrédité par le COFRAC (tel que <strong>LSTI</strong>) selon la norme <strong>ISO/IEC 17065</strong> et le guide <strong>ETSI EN 319 403-1</strong>. L'audit comporte l'analyse approfondie de toute la documentation opérationnelle, suivie d'une mission d'inspection physique sur site en datacenter : vérification des baies blindées, contrôle de l'intégrité des HSMs, audit des pistes d'audit (logs sécurisés), vérification de la dérive d'horloge UTC et tests d'intrusion techniques.
+              </p>
+              <div class="pathway-specs">
+                <span class="norm-tag">ISO/IEC 17065</span>
+                <span class="norm-tag">ETSI EN 319 403-1</span>
+                <span class="norm-tag">Audit sur Site</span>
+                <span class="norm-tag">Pentesting Indépendant</span>
+              </div>
+              <div class="pathway-deliverable">
+                <div class="pathway-deliverable-icon">📦</div>
+                <div class="pathway-deliverable-content">
+                  <h5>Livrables Obligatoires de l'Étape</h5>
+                  <p>Rapport d'Évaluation de la Conformité officiel — <strong>Conformity Assessment Report (CAR)</strong> attestant de la pleine conformité au Règlement eIDAS.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jalon 04 -->
+          <div class="pathway-milestone">
+            <div class="pathway-marker">04</div>
+            <div class="pathway-card">
+              <div class="pathway-meta">
+                <span class="pathway-badge-phase">Phase 04 • Supervision Nationale</span>
+                <span class="pathway-badge-actor">🏛️ ANSSI (Organe National de Contrôle)</span>
+              </div>
+              <h3 class="pathway-title">Instruction Réglementaire &amp; Décision de Qualification</h3>
+              <p class="pathway-desc">
+                Transmission officielle du rapport d'audit CAR à l'autorité nationale compétente : l'<strong>Agence Nationale de la Sécurité des Systèmes d'Information (ANSSI)</strong> en France. L'ANSSI instruit le dossier de demande de qualification, examine les constats d'audit, statue sur la conformité réglementaire (Articles 20 et 21 d'eIDAS) et notifie la décision d'octroi du statut officiel de <strong>Prestataire de Services de Confiance Qualifié</strong>.
+              </p>
+              <div class="pathway-specs">
+                <span class="norm-tag">Règlement (UE) n° 910/2014 Art. 20-21</span>
+                <span class="norm-tag">Supervision ANSSI</span>
+                <span class="norm-tag">Arrêté Ministériel</span>
+              </div>
+              <div class="pathway-deliverable">
+                <div class="pathway-deliverable-icon">📦</div>
+                <div class="pathway-deliverable-content">
+                  <h5>Livrables Obligatoires de l'Étape</h5>
+                  <p>Décision officielle d'attribution du statut qualifié (QTSP / PSCo) prononcée par l'ANSSI et notification formelle à la Commission Européenne.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jalon 05 -->
+          <div class="pathway-milestone">
+            <div class="pathway-marker">05</div>
+            <div class="pathway-card">
+              <div class="pathway-meta">
+                <span class="pathway-badge-phase">Phase 05 • Reconnaissance Paneuropéenne</span>
+                <span class="pathway-badge-actor">🇪🇺 Commission Européenne &amp; 27 États Membres</span>
+              </div>
+              <h3 class="pathway-title">Inscription sur la Liste de Confiance Européenne (TSL)</h3>
+              <p class="pathway-desc">
+                Le certificat de service de confiance d'Open eIDAS est inscrit dans la <strong>Trusted List nationale française (TSL)</strong>, immédiatement intégrée dans la liste consolidée européenne (<strong>LOTL - List of Trusted Lists</strong>) gérée par la Commission Européenne. Dès cette publication, les jetons d'horodatage et cachets électroniques émis par Open eIDAS bénéficient d'un <strong>effet légal automatique et irréfragable</strong> dans l'ensemble des 27 juridictions de l'Union Européenne sans aucune formalité additionnelle.
+              </p>
+              <div class="pathway-specs">
+                <span class="norm-tag">Article 22 eIDAS (TSL)</span>
+                <span class="norm-tag">ETSI TS 119 612</span>
+                <span class="norm-tag">Présomption Légale Art. 25 & 41</span>
+                <span class="norm-tag">Validité Transfrontalière 27 Pays</span>
+              </div>
+              <div class="pathway-deliverable">
+                <div class="pathway-deliverable-icon">📦</div>
+                <div class="pathway-deliverable-content">
+                  <h5>Livrables Obligatoires de l'Étape</h5>
+                  <p>Publication active sur le portail de la Commission Européenne (<a href="https://esignature.ec.europa.eu/efda/tl-browser/" target="_blank" rel="noopener noreferrer" style="color: var(--brand-blue); text-decoration: underline;">EU Trust Services Dashboard</a>) conférant l'opposabilité légale universelle.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Cycle Continu de Surveillance & Maintien -->
+        <div class="cycle-card">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="font-size: 1.75rem;">🔄</span>
+            <div>
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-main); margin: 0;">Le Cycle Permanent de Maintien de la Confiance</h3>
+              <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0.2rem 0 0 0;">La qualification n'est jamais un diplôme définitif, mais un engagement sous contrôle d'audit continu.</p>
+            </div>
+          </div>
+
+          <div class="cycle-grid">
+            <div class="cycle-item">
+              <span class="cycle-item-badge">Mois 12</span>
+              <h4 class="cycle-item-title">Audit de Surveillance Annuel</h4>
+              <p class="cycle-item-desc">
+                Contrôle intermédiaire obligatoire réalisé par l'organisme accrédité (LSTI) : examen des registres d'incidents, dérives d'horloge, rotation des clés et maintien en conditions de sécurité.
+              </p>
+            </div>
+
+            <div class="cycle-item">
+              <span class="cycle-item-badge">Mois 24</span>
+              <h4 class="cycle-item-title">Audit Complet de Renouvellement</h4>
+              <p class="cycle-item-desc">
+                Réévaluation intégrale (<em>Full Audit</em>) documentaire et physique sur site. Réémission d'un rapport CAR complet et renouvellement de la décision de qualification par l'ANSSI.
+              </p>
+            </div>
+
+            <div class="cycle-item">
+              <span class="cycle-item-badge" style="background-color: rgba(220, 38, 38, 0.1); color: #dc2626;">SLA 24 Heures</span>
+              <h4 class="cycle-item-title">Notification d'Incident Légale</h4>
+              <p class="cycle-item-desc">
+                Obligation légale (Art. 19 eIDAS) d'alerter formellement l'ANSSI et la CNIL dans les 24 heures suivant tout incident significatif de sécurité ou rupture de service de confiance.
+              </p>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem; text-align: center;">
+            <a href="https://www.lsti-certification.fr/fr-FR/Nos-offres-entreprises/Confiance-Numerique/Certification-eIDAS" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 0.9rem;">
+              Consulter les spécifications de certification eIDAS chez LSTI
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -348,22 +519,16 @@
     const themeBtn = document.getElementById('theme-toggle');
     const sunIcon = themeBtn.querySelector('.sun-icon');
     const moonIcon = themeBtn.querySelector('.moon-icon');
-    const lightLogos = document.querySelectorAll('.logo-light');
-    const darkLogos = document.querySelectorAll('.logo-dark');
 
     function updateThemeUI(theme) {
       if (theme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
         sunIcon.style.display = 'none';
         moonIcon.style.display = 'block';
-        lightLogos.forEach(el => el.style.display = 'none');
-        darkLogos.forEach(el => el.style.display = 'block');
       } else {
         document.documentElement.setAttribute('data-theme', 'light');
         sunIcon.style.display = 'block';
         moonIcon.style.display = 'none';
-        lightLogos.forEach(el => el.style.display = 'block');
-        darkLogos.forEach(el => el.style.display = 'none');
       }
     }
 

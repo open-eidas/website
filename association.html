@@ -18,6 +18,9 @@
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
       }
     })();
   </script>
@@ -29,7 +32,7 @@
     <div class="container nav-wrap">
       <a href="index.html" class="brand-link" aria-label="Open eIDAS Accueil">
         <img src="assets/logo-horizontal.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-light">
-        <img src="assets/logo-horizontal-dark.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-dark" style="display: none;">
+        <img src="assets/logo-horizontal-dark.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-dark">
       </a>
 
       <nav aria-label="Navigation principale">
@@ -109,21 +112,12 @@
           </ul>
         </div>
 
-        <!-- Deux piliers de gouvernance -->
-        <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem;">
-          <div class="card">
-            <h3 class="card-title">🤝 Bénévolat Strict de la Gouvernance</h3>
-            <p class="card-desc">
-              Les administrateurs au Conseil d'Administration et les membres du Bureau n'ont droit à <strong>aucune rémunération, indemnité ou avantage en nature</strong> au titre de leur mandat. Seuls les remboursements de frais réels engagés sur justificatifs sont admis.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3 class="card-title">💻 Équipes Techniques Opérationnelles</h3>
-            <p class="card-desc">
-              Pour assurer le développement logiciel continu (AGPLv3), la maintenance 24/7 et l'administration des HSMs, l'association peut rémunérer des ingénieurs et développeurs aux conditions de marché. <strong>Règle d'or :</strong> Aucun salarié ou prestataire rémunéré ne peut siéger au CA ou au Bureau (étanchéité absolue de gouvernance).
-            </p>
-          </div>
+        <!-- Ethique et Gouvernance Desinteressee -->
+        <div class="callout-box" style="margin-top: 2rem;">
+          <h4>⚖️ Gouvernance Collégiale &amp; Bénévolat Désintéressé</h4>
+          <p>
+            Les administrateurs siégeant au Conseil d'Administration et les membres du Bureau exercent leur mandat à titre <strong>strictement bénévole</strong>, sans aucune rémunération, indemnité ou avantage en nature (seuls les frais réels engagés sur justificatifs stricts sont remboursés). L'association garantit l'absence totale de conflit d'intérêts : aucun membre de la gouvernance ne peut percevoir de rémunération, sanctuarisant une indépendance totale au service exclusif du bien commun numérique.
+          </p>
         </div>
       </div>
     </section>
@@ -133,36 +127,100 @@
       <div class="container">
         <div class="section-header">
           <span class="section-tag">Transparence Radicale</span>
-          <h2 class="section-title">Redevabilité Publique Intégrale (Public Accountability)</h2>
+          <h2 class="section-title">Les Engagements de Redevabilité Publique (Public Accountability)</h2>
           <p class="section-desc">
-            Open eIDAS rend compte publiquement et en continu de l'ensemble de ses actes, débats et finances.
+            Open eIDAS applique une politique d'ouverture intégrale de ses délibérations, finances, cérémonies cryptographiques et audits de sécurité.
           </p>
         </div>
 
-        <div class="eidas-overview">
-          <h3>
-            <span>📢</span>
-            <span>Un engagement de publication totale en open access</span>
-          </h3>
-          <p>
-            Inscrit dans l'<strong>Article 3 des Statuts</strong> et le <strong>Titre I du Règlement Intérieur</strong>, le principe de redevabilité publique impose que toutes les convocations, ordres du jour, procès-verbaux de réunions (AG, CA, Bureau, Comité Technique), documents de cadrage stratégique, feuilles de route, budgets prévisionnels et comptes certifiés soient <strong>publiés publiquement sur notre dépôt officiel</strong>.
-          </p>
-          <p>
-            <strong>Les deux seules et strictes exceptions protégées :</strong>
-          </p>
-          <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
-            <div style="background-color: var(--bg-card); padding: 1.25rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
-              <h4 style="color: var(--brand-navy); margin-bottom: 0.5rem;">🛡️ 1. Protection de la Vie Privée (RGPD)</h4>
-              <p style="font-size: 0.9rem; color: var(--text-muted);">
-                Anonymisation ou pseudonymisation préalable systématique des données personnelles sensibles des membres, votants, donateurs et contributeurs (adresses privées, e-mails, montants des dons de particuliers).
-              </p>
-            </div>
-            <div style="background-color: var(--bg-card); padding: 1.25rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
-              <h4 style="color: var(--brand-navy); margin-bottom: 0.5rem;">🔒 2. Sécurité & Divulgation Coordonnée</h4>
-              <p style="font-size: 0.9rem; color: var(--text-muted);">
-                Embargo temporaire (90 jours max) pour le traitement des vulnérabilités critiques (CVD) le temps de publier le patch correctif ; ainsi que le secret absolu des clés matérielles dans les HSMs.
-              </p>
-            </div>
+        <p style="color: var(--text-muted); max-width: 850px; margin: 0 auto 2.5rem auto; text-align: center; font-size: 1.05rem; line-height: 1.7;">
+          Inscrit dans l'<strong>Article 3 des Statuts</strong> et le <strong>Titre I du Règlement Intérieur</strong>, le principe de redevabilité publique fait d'Open eIDAS une maison de verre : toute décision, compte-rendu, budget ou audit technique est accessible publiquement à tous les citoyens et organisations.
+        </p>
+
+        <!-- 6 Piliers de Transparence -->
+        <div class="transparency-grid">
+          <!-- 1. Open Governance -->
+          <div class="transparency-card">
+            <div class="transparency-card-icon">🏛️</div>
+            <div class="transparency-card-tag">Gouvernance Ouverte</div>
+            <h3 class="transparency-card-title">Réunions &amp; Délibérations Publiques</h3>
+            <p class="transparency-card-desc">
+              Toutes les convocations, ordres du jour, comptes-rendus et procès-verbaux de séances des Assemblées Générales, du Conseil d'Administration, du Bureau et du Comité de Pilotage Technique (TSC) sont versés en continu sur notre dépôt public officiel.
+            </p>
+            <a href="https://github.com/open-eidas/organisation/tree/main/reunions" target="_blank" rel="noopener noreferrer" class="transparency-card-link">
+              <span>Voir le registre des réunions</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+
+          <!-- 2. Open Books -->
+          <div class="transparency-card">
+            <div class="transparency-card-icon">📊</div>
+            <div class="transparency-card-tag">Finances Vérifiables</div>
+            <h3 class="transparency-card-title">Transparence Budgétaire &amp; Comptes Ouverts</h3>
+            <p class="transparency-card-desc">
+              Publication annuelle du budget prévisionnel, des comptes financiers certifiés, du détail des dons, des mécénats et des contributions aux coûts d'infrastructure réels. Chaque euro collecté est tracé et affecté exclusivement à la pérennité du service.
+            </p>
+            <a href="https://github.com/open-eidas/organisation/tree/main/cadrage" target="_blank" rel="noopener noreferrer" class="transparency-card-link">
+              <span>Consulter le cadre financier</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+
+          <!-- 3. Key Ceremonies -->
+          <div class="transparency-card">
+            <div class="transparency-card-icon">🔑</div>
+            <div class="transparency-card-tag">Cryptographie Auditable</div>
+            <h3 class="transparency-card-title">Cérémonies de Clés sous Double Contrôle</h3>
+            <p class="transparency-card-desc">
+              Toute génération de clés de confiance dans les HSMs est exécutée selon des règles strictes de contrôle conjoint (<em>dual control</em>, règle du 2-man rule, secret partagé Shamir M-of-N). Les procès-verbaux intégraux, la liste des témoins et les empreintes SHA-256 / SHA-3 sont publiés publiquement.
+            </p>
+            <a href="https://github.com/open-eidas/organisation/blob/main/reglement-interieur/reglement-interieur.md" target="_blank" rel="noopener noreferrer" class="transparency-card-link">
+              <span>Protocole dans le Règlement</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+
+          <!-- 4. Open Audits -->
+          <div class="transparency-card">
+            <div class="transparency-card-icon">📜</div>
+            <div class="transparency-card-tag">Évaluation Indépendante</div>
+            <h3 class="transparency-card-title">Rapports d'Audit de Conformité Publics</h3>
+            <p class="transparency-card-desc">
+              À rebours du secret des acteurs marchands, Open eIDAS publie les synthèses et rapports d'évaluation de la conformité (CAR) émis par les organismes d'audit accrédités (LSTI / CAB) ainsi que les rapports annuels de surveillance de nos services de confiance.
+            </p>
+            <a href="eidas.html#processus" class="transparency-card-link">
+              <span>Comprendre le parcours d'audit</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+
+          <!-- 5. 100% Free Software -->
+          <div class="transparency-card">
+            <div class="transparency-card-icon">💻</div>
+            <div class="transparency-card-tag">Zéro Boîte Noire</div>
+            <h3 class="transparency-card-title">Code Source 100 % Libre (AGPLv3)</h3>
+            <p class="transparency-card-desc">
+              L'intégralité du code applicatif (API de confiance, daemons d'horodatage RFC 3161, validateurs de signatures et connecteurs matériels PKCS#11) est sous licence libre <strong>GNU AGPL-3.0</strong>. Chacun peut auditer, vérifier et reproduire les exécutables.
+            </p>
+            <a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer" class="transparency-card-link">
+              <span>Explorer le code source</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+
+          <!-- 6. Strict Limits: RGPD & Security -->
+          <div class="transparency-card">
+            <div class="transparency-card-icon">🛡️</div>
+            <div class="transparency-card-tag">Cadres Protecteurs</div>
+            <h3 class="transparency-card-title">Respect Strict du RGPD &amp; CVD de Sécurité</h3>
+            <p class="transparency-card-desc">
+              Les deux seules réserves légitimes de transparence : <strong>caviardage systématique</strong> des données personnelles sensibles des membres et donateurs pour préserver leur vie privée ; et <strong>embargo temporaire (90 j max)</strong> en cas de vulnérabilité de sécurité pour déployer le correctif avant publication.
+            </p>
+            <a href="https://github.com/open-eidas/organisation/blob/main/gouvernance/charte-ethique.md" target="_blank" rel="noopener noreferrer" class="transparency-card-link">
+              <span>Voir la charte éthique</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -359,22 +417,16 @@
     const themeBtn = document.getElementById('theme-toggle');
     const sunIcon = themeBtn.querySelector('.sun-icon');
     const moonIcon = themeBtn.querySelector('.moon-icon');
-    const lightLogos = document.querySelectorAll('.logo-light');
-    const darkLogos = document.querySelectorAll('.logo-dark');
 
     function updateThemeUI(theme) {
       if (theme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
         sunIcon.style.display = 'none';
         moonIcon.style.display = 'block';
-        lightLogos.forEach(el => el.style.display = 'none');
-        darkLogos.forEach(el => el.style.display = 'block');
       } else {
         document.documentElement.setAttribute('data-theme', 'light');
         sunIcon.style.display = 'block';
         moonIcon.style.display = 'none';
-        lightLogos.forEach(el => el.style.display = 'none');
-        darkLogos.forEach(el => el.style.display = 'block');
       }
     }
 
