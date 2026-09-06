@@ -1,0 +1,59 @@
+# ==============================================================================
+# Open eIDAS — Configuration Apache / Infomaniak (.htaccess)
+# ==============================================================================
+
+# 1. Redirection HTTPS automatique
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# 2. En-têtes de sécurité
+<IfModule mod_headers.c>
+  # Protection contre le MIME-sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Protection contre le clickjacking
+  Header always set X-Frame-Options "DENY"
+
+  # Protection XSS
+  Header always set X-XSS-Protection "1; mode=block"
+
+  # Politique de référent
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # HSTS (activation du HTTPS strict pour 1 an)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # Permissions Policy
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# 3. MIME Types pour SVG et polices
+<IfModule mod_mime.c>
+  AddType image/svg+xml .svg .svgz
+  AddEncoding gzip .svgz
+</IfModule>
+
+# 4. Compression Gzip / Deflate
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+  AddOutputFilterByType DEFLATE application/javascript text/javascript
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# 5. Gestion du cache navigateur
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # HTML : pas de cache prolongé (pour voir les mises à jour immédiatement)
+  ExpiresByType text/html "access plus 0 seconds"
+
+  # CSS, JavaScript, SVG, images : 7 jours
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType image/svg+xml "access plus 7 days"
+  ExpiresByType image/png "access plus 7 days"
+  ExpiresByType image/jpeg "access plus 7 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+</IfModule>
