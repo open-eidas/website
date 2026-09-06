@@ -75,8 +75,8 @@
     <section class="hero">
       <div class="container">
         <div class="hero-badge">
-          <span>🇪🇺</span>
-          <span>Infrastructure de Confiance Numérique Ouverte</span>
+          <span>🧪</span>
+          <span>Environnement de Staging Ouvert — Qualification eIDAS en cours</span>
         </div>
 
         <h1 class="hero-title">
@@ -88,8 +88,16 @@
           Open eIDAS transpose le modèle d'intérêt général de <strong>Let's Encrypt / ISRG</strong> aux services de confiance qualifiés européens : horodatage RFC 3161, cachet d'entreprise et signature légale — avec des standards ouverts, une cryptographie souveraine et un coût d'intégration nul.
         </p>
 
+        <!-- Staging Transparency Banner -->
+        <div class="staging-banner" role="status">
+          <span class="staging-banner-icon">⚠️</span>
+          <div class="staging-banner-content">
+            <strong>Service en cours de qualification — API de Staging uniquement :</strong> Le service n'est pas encore opérationnel en production qualifiée eIDAS. Les API actuelles sont déployées à des fins de <em>staging</em> et de tests techniques : elles mettent en œuvre le <strong>même niveau d'exigence et de confiance technique</strong> que la cible (clé sous HSM, synchronisation atomique UTC(OP)/UTC(PTB), journal inaltérable chaîné), mais ne sont <strong>pas encore formellement certifiées</strong> par un organisme d'audit accrédité.
+          </div>
+        </div>
+
         <div class="hero-cta-group">
-          <a href="#services" class="btn btn-primary">Découvrir le premier service</a>
+          <a href="#services" class="btn btn-primary">Explorer les API de Staging</a>
           <a href="#contact" class="btn btn-outline">Nous contacter</a>
         </div>
 
@@ -101,18 +109,18 @@
               <span class="dot dot-yellow"></span>
               <span class="dot dot-green"></span>
             </div>
-            <span class="terminal-title">horodatage-qualifie-rfc3161.sh</span>
+            <span class="terminal-title">horodatage-staging-rfc3161.sh</span>
           </div>
           <div class="terminal-body">
             <pre><code><span style="color:#64748b;"># 1. Calculer l'empreinte du document (facture, contrat, journal)</span>
 DIGEST=$(sha256sum facture.pdf | cut -d' ' -f1)
 
-<span style="color:#64748b;"># 2. Obtenir un jeton d'horodatage RFC 3161 opposable</span>
-curl -s -X POST https://api.open-eidas.eu/v1/timestamp \
+<span style="color:#64748b;"># 2. Obtenir un jeton d'horodatage RFC 3161 (API Staging - non certifiée)</span>
+curl -s -X POST https://staging.open-eidas.eu/api/v1/timestamp \
      -H 'Content-Type: application/json' \
      -d "{\"hash\":\"$DIGEST\"}"
 
-<span style="color:#22c55e;">✔ Jeton émis en &lt;10ms — Clé protégée par HSM — Heure traçable UTC(OP)/UTC(PTB)</span></code></pre>
+<span style="color:#eab308;">✔ Jeton émis (Staging) — Même pile cryptographique (HSM + UTC) — En attente d'audit de qualification</span></code></pre>
           </div>
         </div>
       </div>
@@ -174,11 +182,11 @@ curl -s -X POST https://api.open-eidas.eu/v1/timestamp \
             <div class="service-number">01</div>
             <div class="service-content">
               <h3>
-                Horodatage Qualifié RFC 3161
-                <span class="service-status status-active">Premier Service Opérationnel</span>
+                Horodatage RFC 3161 (TSA)
+                <span class="service-status status-staging">Staging Actif (Non Certifié)</span>
               </h3>
               <p class="card-desc">
-                Preuve d'intégrité temporelle et d'antériorité juridique opposable. Indispensable pour la facturation électronique, la pérennisation des signatures (PAdES-LTA, XAdES-LTA) et l'archivage probant. Développé en Go, interfacé PKCS#11 avec SoftHSM2/HSM certifié, et surveillé en continu par recoupement NTP des laboratoires de métrologie (Observatoire de Paris et PTB).
+                Preuve d'intégrité temporelle et d'antériorité juridique opposable. Le premier service est <strong>actuellement déployé en environnement de staging</strong> : il applique rigoureusement le même niveau d'exigence et de confiance technique que l'infrastructure de production cible (clé isolée sous HSM via PKCS#11, synchronisation métrologique continue UTC(OP)/UTC(PTB), journal d'audit chaîné par SHA-256). Il permet à tout éditeur ou intégrateur de valider ses flux dès aujourd'hui, en amont de l'audit formel de qualification eIDAS / ANSSI.
               </p>
             </div>
           </div>
