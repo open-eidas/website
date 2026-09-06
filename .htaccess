@@ -2,9 +2,10 @@
 # Open eIDAS — Configuration Apache / Infomaniak (.htaccess)
 # ==============================================================================
 
-# 1. Redirection HTTPS automatique
+# 1. Redirection HTTPS automatique compatible proxy Infomaniak
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
