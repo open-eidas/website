@@ -683,3 +683,252 @@ a:hover {
     justify-content: center;
   }
 }
+
+/* ==========================================================================
+   eIDAS Educational Section & Levels
+   ========================================================================== */
+.eidas-overview {
+  margin-bottom: 3rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.eidas-overview h3 {
+  font-size: 1.4rem;
+  color: var(--brand-navy);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.eidas-overview p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.eidas-overview p:last-child {
+  margin-bottom: 0;
+}
+
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.level-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 0.875rem;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.level-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-blue);
+}
+
+.level-card.featured {
+  border-color: var(--brand-blue);
+  background: linear-gradient(to bottom, var(--bg-card), var(--bg-surface));
+}
+
+.level-badge-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.level-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.level-badge-simple {
+  background-color: rgba(148, 163, 184, 0.15);
+  color: var(--text-muted);
+}
+
+.level-badge-advanced {
+  background-color: rgba(14, 165, 233, 0.15);
+  color: #0284c7;
+}
+
+.level-badge-qualified {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.level-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+}
+
+.level-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.level-legal {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-subtle);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   FAQ Accordion Section (Accessible Native <details>)
+   ========================================================================== */
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-category {
+  margin-bottom: 2.5rem;
+}
+
+.faq-category-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brand-navy);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.faq-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.faq-item {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.faq-item:hover {
+  border-color: var(--brand-blue);
+}
+
+.faq-item[open] {
+  border-color: var(--brand-blue);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-summary:hover {
+  background-color: rgba(0, 51, 153, 0.03);
+  color: var(--brand-blue);
+}
+
+[data-theme="dark"] .faq-summary:hover {
+  background-color: rgba(56, 189, 248, 0.05);
+}
+
+.faq-chevron {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--text-subtle);
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+  color: var(--brand-blue);
+}
+
+.faq-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.faq-content p {
+  margin-bottom: 0.875rem;
+}
+
+.faq-content p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-content ul {
+  margin-left: 1.25rem;
+  margin-bottom: 0.875rem;
+}
+
+.faq-content li {
+  margin-bottom: 0.4rem;
+}
+
+.faq-content code {
+  background-color: var(--border-subtle);
+  color: var(--brand-blue);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.85em;
+  font-family: var(--font-mono);
+}
+
+.faq-highlight-box {
+  background-color: var(--badge-gold-bg);
+  border-left: 4px solid var(--brand-gold);
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}

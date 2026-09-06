@@ -42,8 +42,10 @@
       <nav aria-label="Navigation principale">
         <ul class="nav-links">
           <li><a href="#mission" class="nav-link">Mission</a></li>
+          <li><a href="#eidas" class="nav-link">Comprendre eIDAS</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#architecture" class="nav-link">Sécurité & Architecture</a></li>
+          <li><a href="#architecture" class="nav-link">Sécurité</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
@@ -165,8 +167,93 @@ curl -s -X POST https://staging.open-eidas.eu/api/v1/timestamp \
       </div>
     </section>
 
+    <!-- Comprendre le Cadre eIDAS -->
+    <section id="eidas" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Cadre Réglementaire &amp; Juridique</span>
+          <h2 class="section-title">Comprendre le Règlement eIDAS</h2>
+          <p class="section-desc">
+            Le standard européen qui confère une valeur légale opposable et transfrontalière aux transactions numériques.
+          </p>
+        </div>
+
+        <div class="eidas-overview">
+          <h3>
+            <span>🇪🇺</span>
+            <span>Qu'est-ce que le règlement eIDAS (et eIDAS 2.0) ?</span>
+          </h3>
+          <p>
+            Adopté par le Parlement et le Conseil européen, le règlement <strong>eIDAS</strong> (Règlement UE n° 910/2014), désormais enrichi par <strong>eIDAS 2.0</strong> (Règlement UE 2024/1183), établit un cadre juridique uniforme pour l'identification électronique et les <strong>services de confiance</strong> à travers les 27 pays de l'Union Européenne.
+          </p>
+          <p>
+            Son principe fondamental est l'<strong>interopérabilité transfrontalière</strong> : une preuve électronique ou une signature délivrée selon les exigences eIDAS dans un État membre possède une pleine reconnaissance légale dans tous les autres États de l'Union, sans qu'aucun tribunal ne puisse la rejeter au seul motif de son format dématérialisé.
+          </p>
+          <p>
+            Avec l'entrée en vigueur de la facturation électronique obligatoire, du statut des plateformes et du futur <strong>Portefeuille Européen d'Identité Numérique (EUDI Wallet)</strong>, eIDAS devient l'épine dorsale juridique de toute transaction numérique en Europe.
+          </p>
+        </div>
+
+        <!-- 3 Niveaux de Confiance -->
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--brand-navy);">Les Trois Paliers de Valeur Probante</h3>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+          eIDAS gradue les services de confiance en trois niveaux d'exigence technique et de portée juridique :
+        </p>
+
+        <div class="levels-grid">
+          <!-- Simple -->
+          <div class="level-card">
+            <div class="level-badge-wrap">
+              <span class="level-badge level-badge-simple">Niveau 1</span>
+              <span style="font-size: 1.25rem;">📄</span>
+            </div>
+            <h4 class="level-title">Simple</h4>
+            <p class="level-desc">
+              Donnée sous forme électronique liée à d'autres données (ex. un timestamp d'horloge serveur standard, une case cochée sur une page web).
+            </p>
+            <div class="level-legal">
+              <span>⚠️</span>
+              <span><strong>Valeur légale limitée :</strong> Admissible en preuve mais facilement contestable. La charge de la preuve repose entièrement sur celui qui s'en prévaut.</span>
+            </div>
+          </div>
+
+          <!-- Avancé -->
+          <div class="level-card">
+            <div class="level-badge-wrap">
+              <span class="level-badge level-badge-advanced">Niveau 2</span>
+              <span style="font-size: 1.25rem;">🔒</span>
+            </div>
+            <h4 class="level-title">Avancé</h4>
+            <p class="level-desc">
+              Lié univoquement au créateur (clé asymétrique), permet d'identifier l'émetteur et garantit qu'aucune modification ultérieure des données n'est passée inaperçue.
+            </p>
+            <div class="level-legal">
+              <span>🛡️</span>
+              <span><strong>Force probante accrue :</strong> Auditabilité technique des algorithmes, mais absence de présomption légale automatique.</span>
+            </div>
+          </div>
+
+          <!-- Qualifié (Featured) -->
+          <div class="level-card featured">
+            <div class="level-badge-wrap">
+              <span class="level-badge level-badge-qualified">Niveau 3 — Qualifié</span>
+              <span style="font-size: 1.25rem;">⭐</span>
+            </div>
+            <h4 class="level-title">Qualifié (QTS / QTSP)</h4>
+            <p class="level-desc">
+              Délivré par un Prestataire de Services de Confiance Qualifié audité par l'ANSSI / l'UE. Clés privées sous HSM matériel certifié, heure atomique UTC traçable et contrôles continus.
+            </p>
+            <div class="level-legal" style="color: #059669;">
+              <span>⚖️</span>
+              <span><strong>Présomption d'exactitude :</strong> Renversement de la charge de la preuve (Article 41 eIDAS). Opposabilité juridique automatique et incontestable dans les 27 pays de l'UE.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Services Roadmap -->
-    <section id="services" class="section">
+    <section id="services" class="section section-subtle">
       <div class="container">
         <div class="section-header">
           <span class="section-tag">Feuille de Route</span>
@@ -267,6 +354,257 @@ curl -s -X POST https://staging.open-eidas.eu/api/v1/timestamp \
             <p class="card-desc">
               Chaque transaction, émission de jeton ou contrôle d'horloge est consigné dans un journal chaîné par empreintes SHA-256. Toute altération, suppression ou insertion est détectable immédiatement, et le service refuse de démarrer si l'historique est compromis.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section section-subtle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Foire Aux Questions</span>
+          <h2 class="section-title">Questions Fréquentes</h2>
+          <p class="section-desc">
+            Tout ce que vous devez savoir sur le cadre eIDAS, notre modèle associatif et nos garanties de sécurité.
+          </p>
+        </div>
+
+        <div class="faq-container">
+          <!-- Catégorie 1: Modèle & Association -->
+          <div class="faq-category">
+            <h3 class="faq-category-title">
+              <span>🏛️</span>
+              <span>Modèle d'Intérêt Général &amp; Association</span>
+            </h3>
+
+            <div class="faq-group">
+              <details class="faq-item" name="faq-group" open>
+                <summary class="faq-summary">
+                  <span>Qu'est-ce qu'Open eIDAS et en quoi est-ce comparable à Let's Encrypt ?</span>
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="faq-content">
+                  <p>
+                    De la même manière que l'<strong>ISRG (Internet Security Research Group)</strong> a créé <strong>Let's Encrypt</strong> pour universaliser le chiffrement TLS/HTTPS sur le Web sans coût de licence, <strong>Open eIDAS</strong> applique ce modèle d'infrastructure d'intérêt général aux <strong>services de confiance qualifiés européens (eIDAS)</strong>.
+                  </p>
+                  <p>
+                    Aujourd'hui, l'accès à un horodatage légal ou à un cachet d'entreprise est captif d'oligopoles commerciaux qui facturent chaque jeton entre 0,05 € et 0,30 €, imposant des SDKs privateurs et des abonnements annuels. Open eIDAS est portée par une <strong>Association Loi 1901 à but non lucratif</strong>, garantissant l'accès universel, des API ouvertes et la souveraineté numérique européenne.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item" name="faq-group">
+                <summary class="faq-summary">
+                  <span>Le service est-il gratuit ? Comment l'association finance-t-elle son infrastructure ?</span>
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="faq-content">
+                  <p>
+                    <strong>Oui, l'accès de base est libre et gratuit</strong> pour les citoyens, les développeurs indépendants, les projets open source, les associations et les TPE/PME dans la limite de quotas raisonnables (<em>fair use</em>).
+                  </p>
+                  <p>
+                    Pour financer l'hébergement sécurisé ISO 27001, les modules cryptographiques HSM certifiés et les audits formels annuels de conformité eIDAS :
+                  </p>
+                  <ul>
+                    <li><strong>Le mécénat et les dons</strong> d'entreprises engagées pour la souveraineté numérique et d'institutions publiques ;</li>
+                    <li><strong>La contribution aux coûts (Cost Recovery)</strong> pour les très gros consommateurs industriels (millions d'appels mensuels), facturée à prix coûtant mutualisé sans aucune marge spéculative.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="faq-item" name="faq-group">
+                <summary class="faq-summary">
+                  <span>Les dons et le mécénat envers Open eIDAS sont-ils déductibles fiscalement ?</span>
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="faq-content">
+                  <p>
+                    <strong>Oui.</strong> En tant qu'organisme d'intérêt général à gestion désintéressée :
+                  </p>
+                  <ul>
+                    <li><strong>Pour les particuliers (art. 200 du CGI) :</strong> Réduction d'impôt sur le revenu de <strong>66 %</strong> du montant du don (dans la limite de 20 % du revenu imposable, reportable sur 5 ans).</li>
+                    <li><strong>Pour les entreprises (art. 238 bis du CGI) :</strong> Réduction d'impôt sur les sociétés de <strong>60 %</strong> du don ou du coût du mécénat de compétences (dans la limite de 20 000 € ou 0,5 % du CA HT).</li>
+                  </ul>
+                  <p>
+                    Les entreprises peuvent également mettre à disposition des ingénieurs ou développeurs via le <em>mécénat de compétences</em> en déduisant 60 % de leur coût de revient salarial.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item" name="faq-group">
+                <summary class="faq-summary">
+                  <span>Où puis-je consulter les statuts et participer à la gouvernance ?</span>
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="faq-content">
+                  <p>
+                    L'association applique une règle de <strong>redevabilité publique intégrale (Public Accountability)</strong> : l'ensemble des statuts, du règlement intérieur, des procès-verbaux de réunions et des comptes est public et accessible en open access sur notre dépôt officiel :
+                  </p>
+                  <p>
+                    👉 <strong><a href="https://github.com/open-eidas/organisation" target="_blank" rel="noopener noreferrer" style="color: var(--brand-blue); text-decoration: underline;">github.com/open-eidas/organisation</a></strong>
+                  </p>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- Catégorie 2: Sécurité & Technique -->
+          <div class="faq-category">
+            <h3 class="faq-category-title">
+              <span>🔐</span>
+              <span>Cryptographie, Sécurité &amp; Données Personnelles</span>
+            </h3>
+
+            <div class="faq-group">
+              <details class="faq-item" name="faq-group">
+                <summary class="faq-summary">
+                  <span>Mes documents confidentiels transitent-ils par vos serveurs ?</span>
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="faq-content">
+                  <p>
+                    <strong>NON, absolument jamais.</strong> L'architecture applique un principe strict de <em>Privacy by Design</em> et de minimisation des données :
+                  </p>
+                  <div class="faq-highlight-box">
+                    Seule l'<strong>empreinte cryptographique (hash SHA-256)</strong> du document est transmise à l'API d'horodatage. Le document lui-même (contrat, facture, bulletin) ne quitte jamais votre terminal ou votre serveur.
+                  </div>
+                  <p>
+                    Il est mathématiquement impossible de reconstituer le document à partir de son empreinte. Aucun texte, aucune métadonnée métier ni aucune donnée personnelle ne transite ou n'est stockée par Open eIDAS.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item" name="faq-group">
+                <summary class="faq-summary">
+                  <span>Pourquoi l'horodatage RFC 3161 est-il supérieur à un simple horodatage serveur ou une blockchain ?</span>
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="faq-content">
+                  <p>
+                    Une date inscrite par une horloge serveur locale peut être modifiée par n'importe quel administrateur système. De même, les solutions d'ancrage blockchain ne sont pas reconnues comme des prestataires qualifiés eIDAS par les tribunaux européens et souffrent de latence et de coûts imprévisibles (gas fees).
+                  </p>
+                  <p>
+                    L'<strong>horodatage qualifié RFC 3161 / eIDAS</strong> offre :
+                  </p>
+                  <ul>
+                    <li>Une <strong>traçabilité métrologique directe</strong> avec les horloges atomiques de référence (UTC(OP) / UTC(PTB)) ;</li>
+                    <li>Un <strong>scellement asymétrique</strong> par clé matérielle HSM auditée par l'ANSSI ;</li>
+                    <li>Le <strong>renversement de la charge de la preuve</strong> (Article 41 eIDAS) : le jeton fait foi de plein droit devant n'importe quelle juridiction des 27 pays de l'Union Européenne.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="faq-item" name="faq-group">
+                <summary class="faq-summary">
+                  <span>Le code source est-il entièrement libre et auditable ?</span>
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="faq-content">
+                  <p>
+                    <strong>Oui, à 100 %.</strong> Le serveur d'horodatage, le gestionnaire de journal chaîné et les connecteurs PKCS#11 sont publiés sous licence libre <strong>GNU Affero GPL v3 (AGPL-3.0)</strong> sur <a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer" style="color: var(--brand-blue); text-decoration: underline;">GitHub</a>.
+                  </p>
+                  <p>
+                    Les bibliothèques clientes et SDKs d'intégration sont quant à eux distribués sous licences permissives (Apache-2.0 / MIT) pour faciliter leur intégration dans n'importe quel logiciel propriétaire ou libre.
+                  </p>
+                </div>
+              </details>
+
+              <details class="faq-item" name="faq-group">
+                <summary class="faq-summary">
+                  <span>Où sont situées les infrastructures et comment sont protégées les clés de confiance ?</span>
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="faq-content">
+                  <p>
+                    Les serveurs et les modules matériels sont hébergés <strong>exclusivement au sein de l'Union Européenne</strong> dans des datacenters souverains certifiés ISO 27001 et SecNumCloud, à l'abri des lois extraterritoriales étrangères (Cloud Act, FISA).
+                  </p>
+                  <p>
+                    Les clés privées racines sont hébergées au sein de <strong>modules matériels de sécurité (HSM)</strong> qualifiés QSCD (Common Criteria EAL4+ / EN 419 221-5). Toute manipulation critique sur les clés est soumise au <strong>principe du double contrôle (dual control)</strong> sous procès-verbal de cérémonie de clés.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- Catégorie 3: Réglementation & Intégration -->
+          <div class="faq-category">
+            <h3 class="faq-category-title">
+              <span>🚀</span>
+              <span>Réglementation, Staging &amp; Intégration</span>
+            </h3>
+
+            <div class="faq-group">
+              <details class="faq-item" name="faq-group">
+                <summary class="faq-summary">
+                  <span>Quel est le statut actuel du service (Staging vs Qualification eIDAS) ?</span>
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="faq-content">
+                  <p>
+                    Le service est actuellement en <strong>phase de Staging technique ouvert</strong> :
+                  </p>
+                  <ul>
+                    <li>L'API est déjà pleinement opérationnelle et met en œuvre l'exacte pile cryptographique cible (clés sous HSM, traçabilité UTC continue, journal inaltérable) ;</li>
+                    <li>Les certificats émis en staging sont destinés aux tests d'intégration, aux benchmarks et aux bancs d'essai des éditeurs ;</li>
+                    <li>La <strong>qualification eIDAS formelle</strong> (audit par un organisme d'évaluation de la conformité accrédité et inscription sur la liste de confiance européenne TSL) est le jalon structurant en cours de préparation.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="faq-item" name="faq-group">
+                <summary class="faq-summary">
+                  <span>Comment puis-je intégrer l'horodatage RFC 3161 dans mon logiciel ?</span>
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="faq-content">
+                  <p>
+                    L'intégration est immédiate car basée sur des standards ouverts universels :
+                  </p>
+                  <ul>
+                    <li><strong>En standard RFC 3161 (binaire ASN.1) :</strong> Compatible nativement avec des outils standards comme <code>openssl ts</code>, les bibliothèques Java BouncyCastle, Go, Python ou Rust ;</li>
+                    <li><strong>Via notre façade REST / JSON :</strong> Un simple appel HTTP <code>POST</code> avec le hash SHA-256 permet de récupérer le jeton et la preuve horodatée sans manipulation ASN.1 complexe.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="faq-item" name="faq-group">
+                <summary class="faq-summary">
+                  <span>Que se passe-t-il si l'association devait un jour cesser son activité ?</span>
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="faq-content">
+                  <p>
+                    Conformément aux normes ETSI EN 319 401 et aux règlements eIDAS, l'association maintient un <strong>Plan de Terminaison d'Activité (Termination Plan)</strong> assorti d'un fonds de réserve financier dédié.
+                  </p>
+                  <p>
+                    Ce plan garantit qu'en cas d'arrêt programmé, les listes de révocation (CRL), les validateurs et les journaux de preuves restent consultables et vérifiables publiquement pendant au moins <strong>dix (10) ans</strong>, via le transfert ordonné des archives sous le contrôle de l'autorité de supervision nationale (ANSSI).
+                  </p>
+                </div>
+              </details>
+            </div>
           </div>
         </div>
       </div>
