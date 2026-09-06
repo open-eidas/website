@@ -20,13 +20,19 @@ jobs:
           fetch-depth: 2
 
       - name: Vérification des secrets FTP
-        if: "${{ secrets.FTP_SERVER == '' }}"
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        if: env.FTP_SERVER == ''
         run: |
-          echo "::warning title=Secrets FTP manquants::Les secrets FTP_SERVER, FTP_USERNAME ou FTP_PASSWORD ne sont pas encore renseignés dans GitHub Secrets."
-          echo "Rendez-vous dans Settings > Secrets and variables > Actions pour les configurer."
+          echo "::warning title=Secrets FTP manquants::Les secrets FTP_SERVER, FTP_USERNAME ou FTP_PASSWORD ne sont pas encore configurés dans GitHub Secrets."
+          echo "Pour activer la synchronisation automatique vers Infomaniak :"
+          echo "1. Rendez-vous dans Settings > Secrets and variables > Actions"
+          echo "2. Ajoutez FTP_SERVER, FTP_USERNAME et FTP_PASSWORD"
 
       - name: Synchronisation FTPS vers Infomaniak
-        if: "${{ secrets.FTP_SERVER != '' }}"
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        if: env.FTP_SERVER != ''
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
