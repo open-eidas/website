@@ -1,38 +1,53 @@
-name: Déploiement Infomaniak (FTP)
+name: Déploiement GitHub Pages
 
 on:
   push:
     branches: ["main"]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 concurrency:
-  group: "ftp-deploy"
+  group: "pages"
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    name: Déploiement vers l'hébergement Infomaniak
+  deploy-pages:
+    name: Déploiement GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Récupération du code source
+      - name: Récupération du code
         uses: actions/checkout@v4
+
+      - name: Configuration de GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Téléversement de l'artefact Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          fetch-depth: 2
+          path: '.'
 
-      - name: Vérification des secrets FTP
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-        if: env.FTP_SERVER == ''
-        run: |
-          echo "::warning title=Secrets FTP manquants::Les secrets FTP_SERVER, FTP_USERNAME ou FTP_PASSWORD ne sont pas encore configurés dans GitHub Secrets."
-          echo "Pour activer la synchronisation automatique vers Infomaniak :"
-          echo "1. Rendez-vous dans Settings > Secrets and variables > Actions"
-          echo "2. Ajoutez FTP_SERVER, FTP_USERNAME et FTP_PASSWORD"
+      - name: Déploiement sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
-      - name: Synchronisation FTP vers Infomaniak
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-        if: env.FTP_SERVER != ''
+  deploy-ftp:
+    name: Synchronisation FTP Infomaniak (optionnelle)
+    needs: deploy-pages
+    runs-on: ubuntu-latest
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER }}
+    if: env.FTP_SERVER != ''
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v4
+      - name: Synchronisation FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
