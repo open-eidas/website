@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>L'Association Open eIDAS — Gouvernance, Statuts &amp; Redevabilité Publique</title>
+  <meta name="description" content="Découvrez l'Association Open eIDAS (Loi 1901), sa gouvernance d'intérêt général, sa redevabilité publique intégrale et l'accès à tous ses documents légaux.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- FOUC prevention -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-link" aria-label="Open eIDAS Accueil">
+        <img src="assets/logo-horizontal.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-light">
+        <img src="assets/logo-horizontal-dark.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-dark" style="display: none;">
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Accueil</a></li>
+          <li><a href="eidas.html" class="nav-link">Comprendre eIDAS</a></li>
+          <li><a href="association.html" class="nav-link active" aria-current="page">L'Association</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Basculer le thème clair/sombre" title="Basculer le thème">
+          <svg class="theme-icon sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg class="theme-icon moon-icon" style="display:none;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <!-- GitHub Repo CTA -->
+        <a href="https://github.com/open-eidas/organisation" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="Dépôt Organisation sur GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span>open-eidas/organisation</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-badge">
+          <span>🏛️</span>
+          <span>Association Loi 1901 à but non lucratif</span>
+        </div>
+        <h1 class="page-title">Gouvernance, Statuts &amp; Redevabilité</h1>
+        <p class="page-lead">
+          L'Association Open eIDAS est une organisation d'intérêt général à gestion strictement désintéressée, alignée sur les statuts-types d'utilité publique et engagée dans une redevabilité publique totale.
+        </p>
+      </div>
+    </section>
+
+    <!-- Vision & Intérêt Général -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Raison d'Être</span>
+          <h2 class="section-title">Le Modèle ISRG / Let's Encrypt pour l'Europe</h2>
+          <p class="section-desc">
+            La confiance numérique ne doit pas être un monopole commercial privé.
+          </p>
+        </div>
+
+        <div class="eidas-overview">
+          <h3>
+            <span>🇪🇺</span>
+            <span>Une infrastructure d'intérêt général pour le bien commun</span>
+          </h3>
+          <p>
+            Tout comme l'Internet Security Research Group (ISRG) a révolutionné la sécurité du Web en créant l'autorité de certification gratuite et automatisée <strong>Let's Encrypt</strong>, <strong>Open eIDAS</strong> a pour vocation d'établir un service d'intérêt général pour les services de confiance qualifiés européens : horodatage RFC 3161, cachet d'entreprise et signature légale.
+          </p>
+          <p>
+            Notre structure juridique d'<strong>Association Loi 1901</strong> garantit :
+          </p>
+          <ul>
+            <li><strong>La gestion strictement désintéressée :</strong> Bénévolat absolu des membres du Conseil d'Administration et du Bureau, interdiction de distribution d'actifs ou de bénéfices ;</li>
+            <li><strong>L'ouverture à tous sans discrimination :</strong> Les services ne profitent pas à un cercle restreint mais s'adressent à l'ensemble de la société civile, des entreprises et des administrations ;</li>
+            <li><strong>La sanctuarisation du patrimoine :</strong> En cas de dissolution, l'actif net est obligatoirement transmis à un organisme à but non lucratif poursuivant des buts similaires de logiciel libre ou d'utilité publique.</li>
+          </ul>
+        </div>
+
+        <!-- Deux piliers de gouvernance -->
+        <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem;">
+          <div class="card">
+            <h3 class="card-title">🤝 Bénévolat Strict de la Gouvernance</h3>
+            <p class="card-desc">
+              Les administrateurs au Conseil d'Administration et les membres du Bureau n'ont droit à <strong>aucune rémunération, indemnité ou avantage en nature</strong> au titre de leur mandat. Seuls les remboursements de frais réels engagés sur justificatifs sont admis.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">💻 Équipes Techniques Opérationnelles</h3>
+            <p class="card-desc">
+              Pour assurer le développement logiciel continu (AGPLv3), la maintenance 24/7 et l'administration des HSMs, l'association peut rémunérer des ingénieurs et développeurs aux conditions de marché. <strong>Règle d'or :</strong> Aucun salarié ou prestataire rémunéré ne peut siéger au CA ou au Bureau (étanchéité absolue de gouvernance).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Redevabilité Publique Intégrale -->
+    <section class="section section-subtle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Transparence Radicale</span>
+          <h2 class="section-title">Redevabilité Publique Intégrale (Public Accountability)</h2>
+          <p class="section-desc">
+            Open eIDAS rend compte publiquement et en continu de l'ensemble de ses actes, débats et finances.
+          </p>
+        </div>
+
+        <div class="eidas-overview">
+          <h3>
+            <span>📢</span>
+            <span>Un engagement de publication totale en open access</span>
+          </h3>
+          <p>
+            Inscrit dans l'<strong>Article 3 des Statuts</strong> et le <strong>Titre I du Règlement Intérieur</strong>, le principe de redevabilité publique impose que toutes les convocations, ordres du jour, procès-verbaux de réunions (AG, CA, Bureau, Comité Technique), documents de cadrage stratégique, feuilles de route, budgets prévisionnels et comptes certifiés soient <strong>publiés publiquement sur notre dépôt officiel</strong>.
+          </p>
+          <p>
+            <strong>Les deux seules et strictes exceptions protégées :</strong>
+          </p>
+          <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <div style="background-color: var(--bg-card); padding: 1.25rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+              <h4 style="color: var(--brand-navy); margin-bottom: 0.5rem;">🛡️ 1. Protection de la Vie Privée (RGPD)</h4>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">
+                Anonymisation ou pseudonymisation préalable systématique des données personnelles sensibles des membres, votants, donateurs et contributeurs (adresses privées, e-mails, montants des dons de particuliers).
+              </p>
+            </div>
+            <div style="background-color: var(--bg-card); padding: 1.25rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+              <h4 style="color: var(--brand-navy); margin-bottom: 0.5rem;">🔒 2. Sécurité & Divulgation Coordonnée</h4>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">
+                Embargo temporaire (90 jours max) pour le traitement des vulnérabilités critiques (CVD) le temps de publier le patch correctif ; ainsi que le secret absolu des clés matérielles dans les HSMs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documents Officiels (Repo open-eidas/organisation) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Bibliothèque Juridique</span>
+          <h2 class="section-title">Les Documents Officiels de l'Association</h2>
+          <p class="section-desc">
+            Consultez directement les textes fondateurs hébergés sur le dépôt public <a href="https://github.com/open-eidas/organisation" target="_blank" rel="noopener noreferrer" style="color: var(--brand-blue); text-decoration: underline;">open-eidas/organisation</a>.
+          </p>
+        </div>
+
+        <div class="doc-grid">
+          <!-- Statuts -->
+          <div class="doc-card">
+            <div class="doc-card-icon">📜</div>
+            <h3 class="doc-card-title">Statuts Constitutifs</h3>
+            <p class="doc-card-desc">
+              Texte fondateur conforme aux statuts-types d'utilité publique : objet social, mission d'intérêt général, gestion désintéressée, composition du CA et du Bureau, fonds de terminaison.
+            </p>
+            <a href="https://github.com/open-eidas/organisation/blob/main/statuts/statuts-association.md" target="_blank" rel="noopener noreferrer" class="doc-card-link">
+              <span>Lire les Statuts</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+
+          <!-- Règlement Intérieur -->
+          <div class="doc-card">
+            <div class="doc-card-icon">⚖️</div>
+            <h3 class="doc-card-title">Règlement Intérieur</h3>
+            <p class="doc-card-desc">
+              Modalités d'application, collèges d'adhérents, votes électroniques, sécurité des clés sous HSM, cérémonies de clés sous double contrôle (dual control) et règles RGPD.
+            </p>
+            <a href="https://github.com/open-eidas/organisation/blob/main/reglement-interieur/reglement-interieur.md" target="_blank" rel="noopener noreferrer" class="doc-card-link">
+              <span>Lire le Règlement</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+
+          <!-- Charte Éthique -->
+          <div class="doc-card">
+            <div class="doc-card-icon">🛡️</div>
+            <h3 class="doc-card-title">Charte d'Éthique &amp; Transparence</h3>
+            <p class="doc-card-desc">
+              Engagements fermes de l'association : open source intégral (AGPLv3), rapports d'audit eIDAS/ETSI publics, souveraineté européenne et absence de toute exploitation commerciale de données.
+            </p>
+            <a href="https://github.com/open-eidas/organisation/blob/main/gouvernance/charte-ethique.md" target="_blank" rel="noopener noreferrer" class="doc-card-link">
+              <span>Consulter la Charte</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+
+          <!-- Comité Technique (TSC) -->
+          <div class="doc-card">
+            <div class="doc-card-icon">⚙️</div>
+            <h3 class="doc-card-title">Comité de Pilotage Technique (TSC)</h3>
+            <p class="doc-card-desc">
+              Rôle du TSC dans la supervision des choix cryptographiques, de la conformité aux normes ETSI, de la gestion des RFCs et de la politique de divulgation responsable.
+            </p>
+            <a href="https://github.com/open-eidas/organisation/blob/main/gouvernance/comite-technique.md" target="_blank" rel="noopener noreferrer" class="doc-card-link">
+              <span>Voir le Mandat du TSC</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+
+          <!-- Registre Réunions -->
+          <div class="doc-card">
+            <div class="doc-card-icon">🏛️</div>
+            <h3 class="doc-card-title">Registre Public des Réunions</h3>
+            <p class="doc-card-desc">
+              Dossier archivant l'ensemble des convocations, ordres du jour et procès-verbaux de séances des Assemblées Générales, du Conseil d'Administration et du Bureau (avec caviardage RGPD).
+            </p>
+            <a href="https://github.com/open-eidas/organisation/tree/main/reunions" target="_blank" rel="noopener noreferrer" class="doc-card-link">
+              <span>Accéder au Registre</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+
+          <!-- Cadrage & Roadmap -->
+          <div class="doc-card">
+            <div class="doc-card-icon">🧭</div>
+            <h3 class="doc-card-title">Cadrage Stratégique &amp; Roadmap</h3>
+            <p class="doc-card-desc">
+              Documents de cadrage technique, calendrier des audits, politiques d'horodatage (TSP) et de certification (CP/CPS), et plan formel de fin d'activité sur 10 ans.
+            </p>
+            <a href="https://github.com/open-eidas/organisation/tree/main/cadrage" target="_blank" rel="noopener noreferrer" class="doc-card-link">
+              <span>Explorer les Documents</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+
+          <!-- Adhésions -->
+          <div class="doc-card">
+            <div class="doc-card-icon">📝</div>
+            <h3 class="doc-card-title">Bulletin d'Adhésion</h3>
+            <p class="doc-card-desc">
+              Formulaires et démarches pour rejoindre l'association en tant que particulier (développeur, citoyen, chercheur) ou personne morale (entreprise partenaire, institution).
+            </p>
+            <a href="https://github.com/open-eidas/organisation/blob/main/adhesion/bulletin-adhesion.md" target="_blank" rel="noopener noreferrer" class="doc-card-link">
+              <span>Télécharger le Bulletin</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+
+          <!-- Démarches Administratives -->
+          <div class="doc-card">
+            <div class="doc-card-icon">📁</div>
+            <h3 class="doc-card-title">Guide Administratif (Préfecture / SIRET)</h3>
+            <p class="doc-card-desc">
+              Guide pratique de constitution, télédéclaration en préfecture, parution gratuite au JOAFE, obtention du numéro RNA et des numéros SIREN / SIRET auprès de l'INSEE.
+            </p>
+            <a href="https://github.com/open-eidas/organisation/blob/main/administratif/declaration-prefecture.md" target="_blank" rel="noopener noreferrer" class="doc-card-link">
+              <span>Consulter le Guide</span>
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modèle Économique & Mécénat Fiscal -->
+    <section class="section section-subtle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Régime Fiscal du Mécénat</span>
+          <h2 class="section-title">Financement &amp; Déductibilité Fiscale</h2>
+          <p class="section-desc">
+            Soutenir l'Association Open eIDAS ouvre droit aux avantages fiscaux du régime du mécénat (CGI).
+          </p>
+        </div>
+
+        <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+          <div class="card">
+            <div class="card-icon">👤</div>
+            <h3 class="card-title">Pour les Particuliers (Article 200 du CGI)</h3>
+            <p class="card-desc">
+              Les dons consentis par les particuliers ouvrent droit à une <strong>réduction d'impôt sur le revenu égale à 66 % du montant versé</strong>, dans la limite de 20 % du revenu imposable (avec report possible sur 5 ans).
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-subtle); margin-top: 0.75rem;">
+              *Exemple : Un don de 100 € ne vous coûte réellement que 34 € après déduction fiscale.*
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🏢</div>
+            <h3 class="card-title">Pour les Entreprises (Article 238 bis du CGI)</h3>
+            <p class="card-desc">
+              Les entreprises assujetties à l'impôt sur les sociétés (IS) peuvent déduire <strong>60 % du montant de leur don</strong> (mécénat financier ou valorisation du coût de revient en <strong>mécénat de compétences</strong>), dans la limite de 20 000 € ou 0,5 % du chiffre d'affaires HT.
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-subtle); margin-top: 0.75rem;">
+              *Exemple : Une entreprise mettant un ingénieur senior à disposition 1 jour par semaine déduit 60 % de son coût employeur de son impôt sur les sociétés.*
+            </p>
+          </div>
+        </div>
+
+        <div class="callout-box" style="margin-top: 2rem;">
+          <h4>⚡ Facturation des usages massifs (Cost Recovery)</h4>
+          <p>
+            Conformément à l'Article 16 des Statuts et à l'Article 12 du Règlement Intérieur, l'association a également la faculté de facturer une contribution aux coûts réels d'infrastructure pour les utilisateurs industriels consommant des millions de requêtes par mois. Cette facturation s'effectue strictement au coût de revient mutualisé (*cost recovery*), sans but spéculatif, et concourt exclusivement au financement de l'infrastructure de bien commun.
+          </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;">
+          <a href="mailto:contact@open-eidas.eu" class="btn btn-primary">Nous Contacter pour Adhérer ou Soutenir</a>
+          <a href="https://github.com/open-eidas/organisation" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-left: 0.5rem;">Voir l'Organisation GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p><strong>Open eIDAS</strong> — Association Loi 1901 à but non lucratif dédiée à la confiance numérique européenne.</p>
+        <p style="margin-top: 0.25rem;">Distribué sous licence libre <strong>GNU Affero GPL v3 (AGPL-3.0)</strong>.</p>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="mailto:contact@open-eidas.eu">contact@open-eidas.eu</a></li>
+        <li><a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a></li>
+        <li><a href="https://github.com/open-eidas/organisation" target="_blank" rel="noopener noreferrer">Statuts &amp; Gouvernance</a></li>
+        <li><a href="eidas.html">Comprendre eIDAS</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Theme Script -->
+  <script>
+    const themeBtn = document.getElementById('theme-toggle');
+    const sunIcon = themeBtn.querySelector('.sun-icon');
+    const moonIcon = themeBtn.querySelector('.moon-icon');
+    const lightLogos = document.querySelectorAll('.logo-light');
+    const darkLogos = document.querySelectorAll('.logo-dark');
+
+    function updateThemeUI(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+        lightLogos.forEach(el => el.style.display = 'none');
+        darkLogos.forEach(el => el.style.display = 'block');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+        lightLogos.forEach(el => el.style.display = 'none');
+        darkLogos.forEach(el => el.style.display = 'block');
+      }
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    updateThemeUI(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
+
+    themeBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', nextTheme);
+      updateThemeUI(nextTheme);
+    });
+  </script>
+</body>
+</html>

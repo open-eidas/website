@@ -932,3 +932,208 @@ a:hover {
   font-size: 0.9rem;
   color: var(--text-main);
 }
+
+/* ==========================================================================
+   Multi-page navigation & Subpages styles
+   ========================================================================== */
+.nav-link.active {
+  color: var(--brand-blue);
+  font-weight: 700;
+}
+
+.page-hero {
+  padding: 4rem 0 3rem 0;
+  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-color) 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.page-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--badge-gold-bg);
+  color: var(--brand-gold);
+  border: 1px solid var(--badge-gold-border);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.page-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--brand-navy);
+  margin-bottom: 1.25rem;
+}
+
+.page-lead {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* Process Timeline / Workflow */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.process-step {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 0.875rem;
+  padding: 1.75rem;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand-blue);
+}
+
+.process-step-num {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.process-step-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+}
+
+.process-step-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Document cards (for association repository links) */
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.doc-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 0.875rem;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.doc-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-blue);
+}
+
+.doc-card-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.doc-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.doc-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.doc-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+.doc-card-link:hover {
+  text-decoration: underline;
+}
+
+/* Callout Box */
+.callout-box {
+  background-color: var(--bg-surface);
+  border-left: 4px solid var(--brand-blue);
+  border-radius: 0.5rem;
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  border: 1px solid var(--border-color);
+  border-left-width: 4px;
+}
+
+.callout-box h4 {
+  font-size: 1.1rem;
+  color: var(--brand-navy);
+  margin-bottom: 0.5rem;
+}
+
+.callout-box p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Comparison Table */
+.table-responsive {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  text-align: left;
+  background-color: var(--bg-surface);
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.comparison-table th {
+  background-color: var(--bg-card);
+  font-weight: 700;
+  color: var(--brand-navy);
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tr:hover td {
+  background-color: rgba(0, 51, 153, 0.02);
+}

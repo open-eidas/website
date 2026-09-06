@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Comprendre le Règlement eIDAS et la Certification — Open eIDAS</title>
+  <meta name="description" content="Guide complet sur le règlement européen eIDAS (UE 910/2014 et eIDAS v2 2024/1183), la valeur juridique des services qualifiés et le processus d'audit de certification.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- FOUC prevention -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-link" aria-label="Open eIDAS Accueil">
+        <img src="assets/logo-horizontal.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-light">
+        <img src="assets/logo-horizontal-dark.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-dark" style="display: none;">
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Accueil</a></li>
+          <li><a href="eidas.html" class="nav-link active" aria-current="page">Comprendre eIDAS</a></li>
+          <li><a href="association.html" class="nav-link">L'Association</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Basculer le thème clair/sombre" title="Basculer le thème">
+          <svg class="theme-icon sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg class="theme-icon moon-icon" style="display:none;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <!-- GitHub Repo CTA -->
+        <a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="Voir le projet sur GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-badge">
+          <span>🇪🇺</span>
+          <span>Réglementation Européenne</span>
+        </div>
+        <h1 class="page-title">Le Cadre eIDAS &amp; la Certification</h1>
+        <p class="page-lead">
+          Le règlement européen eIDAS harmonise les services de confiance numérique dans les 27 États membres. Découvrez sa mécanique légale, les trois niveaux de garantie probante et la démarche rigoureuse d'évaluation de la conformité.
+        </p>
+      </div>
+    </section>
+
+    <!-- Qu'est-ce qu'eIDAS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Fondements Juridiques</span>
+          <h2 class="section-title">De la Directive 1999/93 à eIDAS 2.0</h2>
+          <p class="section-desc">
+            Vingt-cinq ans de construction d'un marché unique numérique de la confiance.
+          </p>
+        </div>
+
+        <div class="eidas-overview">
+          <h3>
+            <span>⚖️</span>
+            <span>Une portée juridique transfrontalière directe</span>
+          </h3>
+          <p>
+            Le règlement européen <strong>eIDAS</strong> (Règlement UE n° 910/2014, ayant abrogé la directive 1999/93/CE) est un règlement d'application directe : il s'applique de plein droit dans les 27 pays de l'Union Européenne sans nécessiter de loi de transposition nationale.
+          </p>
+          <p>
+            Son successeur, <strong>eIDAS 2.0 (Règlement UE 2024/1183)</strong>, voté en 2024, modernise ce cadre en introduisant le <strong>Portefeuille Européen d'Identité Numérique (EUDI Wallet)</strong>, les attestations électroniques d'attributs (QEAA), l'archivage électronique qualifié et les registres numériques distribués (ledgers).
+          </p>
+          <p>
+            <strong>Principe clé de non-discrimination :</strong> L'effet juridique et la recevabilité d'un document ou d'une signature en tant que preuve en justice ne peuvent être refusés au seul motif qu'ils se présentent sous forme électronique (Articles 25.1 et 41.1 d'eIDAS).
+          </p>
+        </div>
+
+        <!-- Tableau des 3 niveaux -->
+        <h3 style="font-size: 1.4rem; color: var(--brand-navy); margin-top: 3rem; margin-bottom: 0.5rem;">
+          Les 3 Niveaux d'Exigence et de Valeur Juridique
+        </h3>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+          eIDAS classe les services selon trois niveaux d'assurance technique et juridique :
+        </p>
+
+        <div class="table-responsive">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Niveau</th>
+                <th>Exigences Techniques</th>
+                <th>Effet Juridique</th>
+                <th>Charge de la Preuve</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Simple</strong></td>
+                <td>Données sous forme électronique associées à d'autres données (ex. heure de serveur non tracée, clic d'acceptation).</td>
+                <td>Admissible en justice, mais sans présomption.</td>
+                <td><strong>Sur le demandeur</strong> (en cas de litige, vous devez prouver vous-même la fiabilité de votre serveur).</td>
+              </tr>
+              <tr>
+                <td><strong>2. Avancé</strong></td>
+                <td>Lié univoquement au créateur (clé asymétrique), sous son contrôle exclusif, permettant de déceler toute modification ultérieure.</td>
+                <td>Fiabilité technique renforcée, auditabilité des algorithmes.</td>
+                <td>Preuve libre, soumise à l'appréciation souveraine du juge.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Qualifié (QTS)</strong><br><span style="color:#059669; font-weight:600; font-size:0.8em;">Cible Open eIDAS</span></td>
+                <td>Émis par un <strong>Prestataire Qualifié (QTSP)</strong> audité selon les normes ETSI, clés sous HSM certifié CC EAL4+, traçabilité atomique UTC.</td>
+                <td><strong>Présomption d'intégrité et d'exactitude</strong> de plein droit dans toute l'UE (Art. 41.2 eIDAS).</td>
+                <td><strong>Renversement de la charge de la preuve :</strong> C'est au contestant de prouver une éventuelle faille, fait pratiquement impossible face à un système audité.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout-box">
+          <h4>💡 L'avantage décisif du niveau Qualifié</h4>
+          <p>
+            Pour la signature électronique d'une personne physique, seule la <strong>Signature Électronique Qualifiée (QES)</strong> possède l'équivalence légale automatique et absolue avec une signature manuscrite dans tous les tribunaux de l'UE (Article 25.2 eIDAS). Pour l'horodatage, seul l'<strong>Horodatage Qualifié</strong> bénéficie de la présomption légale d'exactitude temporelle et d'intégrité de la preuve.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catalogue des services de confiance -->
+    <section class="section section-subtle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Nomenclature eIDAS</span>
+          <h2 class="section-title">Les Services de Confiance Couverts</h2>
+          <p class="section-desc">
+            Le panorama complet des briques de confiance réglementées par l'Union Européenne.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-icon">⏱️</div>
+            <h3 class="card-title">Horodatage Électronique (TSA)</h3>
+            <p class="card-desc">
+              « L'horloge parlante » cryptographique. Lie une date et une heure officielles, infalsifiables et traçables sur UTC à une empreinte de données (RFC 3161 / ETSI EN 319 421). Prouve qu'un document existait à un instant T sans altération.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🏢</div>
+            <h3 class="card-title">Cachet Électronique (e-Seal)</h3>
+            <p class="card-desc">
+              L'équivalent numérique du tampon officiel des personnes morales (entreprises, associations, institutions). Permet de sceller automatiquement des millions de documents (factures dématérialisées 2026, attestations, flux API).
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">✍️</div>
+            <h3 class="card-title">Signature Électronique (QES)</h3>
+            <p class="card-desc">
+              Dédiée aux personnes physiques. Atteste de l'identité du signataire et de son consentement éclairé, avec équivalence manuscrite pleine et entière devant les juridictions européennes.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🗄️</div>
+            <h3 class="card-title">Archivage Qualifié (EATS)</h3>
+            <p class="card-desc">
+              Service introduit par eIDAS v2 garantissant qu'un document numérique sera conservé de manière inaltérable et vérifiable sur 10, 30 ans ou plus, malgré l'obsolescence technologique des formats ou des algorithmes.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🪪</div>
+            <h3 class="card-title">Attestations d'Attributs (QEAA)</h3>
+            <p class="card-desc">
+              Dématérialisation certifiée de justificatifs officiels (diplômes universitaires, permis, extraits Kbis, attestations d'assurance) vérifiables instantanément et partageables dans le portefeuille EUDI.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">📱</div>
+            <h3 class="card-title">Portefeuille EUDI (Wallet)</h3>
+            <p class="card-desc">
+              L'application souveraine européenne permettant à chaque citoyen et entreprise de stocker et partager son identité numérique et ses justificatifs dans le respect absolu de la vie privée (RGPD).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Processus de Certification et Qualification -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Audit & Accréditation</span>
+          <h2 class="section-title">Le Parcours vers la Qualification Officielle</h2>
+          <p class="section-desc">
+            Comment un prestataire accède à la liste de confiance européenne (EU Trust List - TSL).
+          </p>
+        </div>
+
+        <p style="color: var(--text-muted); max-width: 850px; margin: 0 auto 2rem auto; text-align: center; font-size: 1.05rem; line-height: 1.7;">
+          Pour devenir un Prestataire de Services de Confiance Qualifié (PSCo / QTSP), le candidat doit franchir un cycle rigoureux d'évaluation de la conformité mené par un organisme accrédité (tel que <strong>LSTI</strong>, accrédité par le COFRAC n° 5-0546 et membre de l'ACAB'c) selon les normes <strong>ISO/IEC 17065</strong> et <strong>ETSI EN 319 403-1</strong>.
+        </p>
+
+        <div class="process-grid">
+          <!-- Step 1 -->
+          <div class="process-step">
+            <div class="process-step-num">Étape 01</div>
+            <h3 class="process-step-title">Socle &amp; Documentation</h3>
+            <p class="process-step-desc">
+              Mise en œuvre des exigences de politique générale de la norme <strong>ETSI EN 319 401</strong> et du Règlement d'exécution UE 2025/2530 : rédaction de la PSSI, analyse de risques formelle, politique d'horodatage (TSP) et de certification (CP/CPS), plan de terminaison.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-step">
+            <div class="process-step-num">Étape 02</div>
+            <h3 class="process-step-title">Audit Initial Documentaire</h3>
+            <p class="process-step-desc">
+              Examen approfondi à distance par l'Organisme d'Évaluation de la Conformité (OEC / LSTI) pour vérifier la conformité des procédures, des profils de certificats et valider la faisabilité opérationnelle.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-step">
+            <div class="process-step-num">Étape 03</div>
+            <h3 class="process-step-title">Audit sur Site &amp; Infrastructure</h3>
+            <p class="process-step-desc">
+              Contrôles physiques et logiques en datacenter : vérification des modules HSM qualifiés (Common Criteria EAL4+), cérémonies de clés sous double contrôle, métrologie UTC et sécurité des systèmes d'information.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process-step">
+            <div class="process-step-num">Étape 04</div>
+            <h3 class="process-step-title">Rapport CAR &amp; Décision ANSSI</h3>
+            <p class="process-step-desc">
+              L'auditeur émet le <strong>Conformity Assessment Report (CAR)</strong>. Ce rapport est transmis à l'autorité nationale de supervision (<strong>l'ANSSI en France</strong>), qui prononce la qualification officielle et inscrit le service sur la <strong>Trust List européenne (TSL)</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="eidas-overview" style="margin-top: 2rem;">
+          <h3>
+            <span>🔄</span>
+            <span>Surveillance continue et renouvellement</span>
+          </h3>
+          <p>
+            La qualification eIDAS n'est jamais définitivement acquise : un <strong>audit de surveillance obligatoire est réalisé à 12 mois</strong>, suivi d'un <strong>audit complet de renouvellement (Full Audit) tous les 24 mois</strong>. Tout incident de sécurité ou dérive d'horloge doit être notifié sous 24 heures à l'ANSSI et à la CNIL.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pourquoi Open eIDAS ? -->
+    <section class="section section-subtle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Bien Commun Numérique</span>
+          <h2 class="section-title">Pourquoi une Infrastructure Ouverte ?</h2>
+          <p class="section-desc">
+            Sortir du piège de la rente marchande pour faire d'eIDAS un service public numérique.
+          </p>
+        </div>
+
+        <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+          <div class="card">
+            <h3 class="card-title" style="color: #dc2626;">❌ Le Marché Actuel : Rente & Enfermement</h3>
+            <ul style="color: var(--text-muted); margin-left: 1.25rem; line-height: 1.8; margin-top: 1rem;">
+              <li><strong>Modèle au jeton :</strong> 0,05 € à 0,30 € par horodatage ou signature, pénalisant les projets à forte volumétrie.</li>
+              <li><strong>SDKs et portails propriétaires :</strong> Enfermement technologique rendant le changement de fournisseur prohibitif.</li>
+              <li><strong>Boîtes noires opaques :</strong> Impossible d'auditer le code source des composants cryptographiques en production.</li>
+              <li><strong>Complexité contractuelle :</strong> Délais d'intégration de plusieurs semaines pour ouvrir un compte commercial.</li>
+            </ul>
+          </div>
+
+          <div class="card" style="border-color: var(--brand-blue);">
+            <h3 class="card-title" style="color: var(--brand-blue);">✅ Le Modèle Open eIDAS : Infrastructure Ouverte</h3>
+            <ul style="color: var(--text-muted); margin-left: 1.25rem; line-height: 1.8; margin-top: 1rem;">
+              <li><strong>Intérêt général à but non lucratif :</strong> Association Loi 1901 appliquant le modèle d'ISRG / Let's Encrypt.</li>
+              <li><strong>Accès universel et gratuit :</strong> Quotas d'intérêt général libres pour citoyens, PME et logiciels libres.</li>
+              <li><strong>100 % Open Source & Auditable :</strong> Code source complet publié sous licence GNU AGPL-3.0.</li>
+              <li><strong>Redevabilité publique intégrale :</strong> Statuts, réunions, budgets et audits accessibles à tous.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="association.html" class="btn btn-primary">Découvrir l'Association &amp; la Gouvernance</a>
+          <a href="index.html#services" class="btn btn-outline" style="margin-left: 0.5rem;">Consulter notre Roadmap</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p><strong>Open eIDAS</strong> — Association Loi 1901 à but non lucratif dédiée à la confiance numérique européenne.</p>
+        <p style="margin-top: 0.25rem;">Distribué sous licence libre <strong>GNU Affero GPL v3 (AGPL-3.0)</strong>.</p>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="mailto:contact@open-eidas.eu">contact@open-eidas.eu</a></li>
+        <li><a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a></li>
+        <li><a href="https://github.com/open-eidas/organisation" target="_blank" rel="noopener noreferrer">Statuts &amp; Gouvernance</a></li>
+        <li><a href="association.html">L'Association</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Theme Script -->
+  <script>
+    const themeBtn = document.getElementById('theme-toggle');
+    const sunIcon = themeBtn.querySelector('.sun-icon');
+    const moonIcon = themeBtn.querySelector('.moon-icon');
+    const lightLogos = document.querySelectorAll('.logo-light');
+    const darkLogos = document.querySelectorAll('.logo-dark');
+
+    function updateThemeUI(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+        lightLogos.forEach(el => el.style.display = 'none');
+        darkLogos.forEach(el => el.style.display = 'block');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+        lightLogos.forEach(el => el.style.display = 'block');
+        darkLogos.forEach(el => el.style.display = 'none');
+      }
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    updateThemeUI(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
+
+    themeBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', nextTheme);
+      updateThemeUI(nextTheme);
+    });
+  </script>
+</body>
+</html>

@@ -41,10 +41,10 @@
 
       <nav aria-label="Navigation principale">
         <ul class="nav-links">
-          <li><a href="#mission" class="nav-link">Mission</a></li>
-          <li><a href="#eidas" class="nav-link">Comprendre eIDAS</a></li>
+          <li><a href="index.html" class="nav-link active" aria-current="page">Accueil</a></li>
+          <li><a href="eidas.html" class="nav-link">Comprendre eIDAS</a></li>
+          <li><a href="association.html" class="nav-link">L'Association</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#architecture" class="nav-link">Sécurité</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
@@ -77,8 +77,8 @@
     <section class="hero">
       <div class="container">
         <div class="hero-badge">
-          <span>🧪</span>
-          <span>Environnement de Staging Ouvert — Qualification eIDAS en cours</span>
+          <span>🛠️</span>
+          <span>Prototype Open Source en développement actif — Staging en cours de déploiement</span>
         </div>
 
         <h1 class="hero-title">
@@ -92,18 +92,18 @@
 
         <!-- Staging Transparency Banner -->
         <div class="staging-banner" role="status">
-          <span class="staging-banner-icon">⚠️</span>
+          <span class="staging-banner-icon">ℹ️</span>
           <div class="staging-banner-content">
-            <strong>Service en cours de qualification — API de Staging uniquement :</strong> Le service n'est pas encore opérationnel en production qualifiée eIDAS. Les API actuelles sont déployées à des fins de <em>staging</em> et de tests techniques : elles mettent en œuvre le <strong>même niveau d'exigence et de confiance technique</strong> que la cible (clé sous HSM, synchronisation atomique UTC(OP)/UTC(PTB), journal inaltérable chaîné), mais ne sont <strong>pas encore formellement certifiées</strong> par un organisme d'audit accrédité.
+            <strong>Projet en cours de développement — Staging en cours de déploiement :</strong> L'environnement public de staging n'est pas encore déployé en ligne et le service n'est pas encore certifié eIDAS. Le code source est un <strong>prototype opérationnel open source</strong> pleinement fonctionnel et testable en local (Go, SoftHSM2, OpenXPKI, journal chaîné SHA-256). L'infrastructure de staging ouverte puis l'audit de qualification eIDAS / ANSSI sont en cours de mise en place.
           </div>
         </div>
 
         <div class="hero-cta-group">
-          <a href="#services" class="btn btn-primary">Explorer les API de Staging</a>
-          <a href="#contact" class="btn btn-outline">Nous contacter</a>
+          <a href="eidas.html" class="btn btn-primary">Comprendre le Cadre eIDAS</a>
+          <a href="association.html" class="btn btn-outline">Découvrir l'Association</a>
         </div>
 
-        <!-- Terminal Card / Integration demo -->
+        <!-- Terminal Card / Local Prototype demo -->
         <div class="terminal-card">
           <div class="terminal-header">
             <div class="terminal-dots">
@@ -111,18 +111,20 @@
               <span class="dot dot-yellow"></span>
               <span class="dot dot-green"></span>
             </div>
-            <span class="terminal-title">horodatage-staging-rfc3161.sh</span>
+            <span class="terminal-title">test-prototype-local.sh</span>
           </div>
           <div class="terminal-body">
-            <pre><code><span style="color:#64748b;"># 1. Calculer l'empreinte du document (facture, contrat, journal)</span>
-DIGEST=$(sha256sum facture.pdf | cut -d' ' -f1)
+            <pre><code><span style="color:#64748b;"># 1. Cloner et lancer le prototype en local via Docker (SoftHSM2 + TSA Engine)</span>
+git clone https://github.com/open-eidas/open-eidas.git &amp;&amp; cd open-eidas
+docker compose up -d
 
-<span style="color:#64748b;"># 2. Obtenir un jeton d'horodatage RFC 3161 (API Staging - non certifiée)</span>
-curl -s -X POST https://staging.open-eidas.eu/api/v1/timestamp \
+<span style="color:#64748b;"># 2. Calculer le hash d'un document et obtenir un jeton d'horodatage RFC 3161</span>
+DIGEST=$(sha256sum document.pdf | cut -d' ' -f1)
+curl -s -X POST http://localhost:8318/api/v1/timestamp \
      -H 'Content-Type: application/json' \
      -d "{\"hash\":\"$DIGEST\"}"
 
-<span style="color:#eab308;">✔ Jeton émis (Staging) — Même pile cryptographique (HSM + UTC) — En attente d'audit de qualification</span></code></pre>
+<span style="color:#eab308;">✔ Jeton émis (Prototype local) — Pile cryptographique opérationnelle (HSM + UTC)</span></code></pre>
           </div>
         </div>
       </div>
@@ -189,9 +191,9 @@ curl -s -X POST https://staging.open-eidas.eu/api/v1/timestamp \
           <p>
             Son principe fondamental est l'<strong>interopérabilité transfrontalière</strong> : une preuve électronique ou une signature délivrée selon les exigences eIDAS dans un État membre possède une pleine reconnaissance légale dans tous les autres États de l'Union, sans qu'aucun tribunal ne puisse la rejeter au seul motif de son format dématérialisé.
           </p>
-          <p>
-            Avec l'entrée en vigueur de la facturation électronique obligatoire, du statut des plateformes et du futur <strong>Portefeuille Européen d'Identité Numérique (EUDI Wallet)</strong>, eIDAS devient l'épine dorsale juridique de toute transaction numérique en Europe.
-          </p>
+          <div style="margin-top: 1.5rem;">
+            <a href="eidas.html" class="btn btn-primary">Consulter le guide complet eIDAS &amp; la certification ➔</a>
+          </div>
         </div>
 
         <!-- 3 Niveaux de Confiance -->
@@ -213,7 +215,7 @@ curl -s -X POST https://staging.open-eidas.eu/api/v1/timestamp \
             </p>
             <div class="level-legal">
               <span>⚠️</span>
-              <span><strong>Valeur légale limitée :</strong> Admissible en preuve mais facilement contestable. La charge de la preuve repose entièrement sur celui qui s'en prévaut.</span>
+              <span><strong>Valeur légale limitée :</strong> Admissible en preuve mais contestable. Charge de la preuve sur le demandeur.</span>
             </div>
           </div>
 
@@ -225,11 +227,11 @@ curl -s -X POST https://staging.open-eidas.eu/api/v1/timestamp \
             </div>
             <h4 class="level-title">Avancé</h4>
             <p class="level-desc">
-              Lié univoquement au créateur (clé asymétrique), permet d'identifier l'émetteur et garantit qu'aucune modification ultérieure des données n'est passée inaperçue.
+              Lié univoquement au créateur (clé asymétrique), permet d'identifier l'émetteur et garantit qu'aucune modification ultérieure n'est passée inaperçue.
             </p>
             <div class="level-legal">
               <span>🛡️</span>
-              <span><strong>Force probante accrue :</strong> Auditabilité technique des algorithmes, mais absence de présomption légale automatique.</span>
+              <span><strong>Force probante accrue :</strong> Auditabilité technique des algorithmes.</span>
             </div>
           </div>
 
@@ -241,12 +243,25 @@ curl -s -X POST https://staging.open-eidas.eu/api/v1/timestamp \
             </div>
             <h4 class="level-title">Qualifié (QTS / QTSP)</h4>
             <p class="level-desc">
-              Délivré par un Prestataire de Services de Confiance Qualifié audité par l'ANSSI / l'UE. Clés privées sous HSM matériel certifié, heure atomique UTC traçable et contrôles continus.
+              Délivré par un Prestataire Qualifié audité par l'ANSSI / l'UE. Clés privées sous HSM matériel certifié, heure atomique UTC traçable.
             </p>
             <div class="level-legal" style="color: #059669;">
               <span>⚖️</span>
-              <span><strong>Présomption d'exactitude :</strong> Renversement de la charge de la preuve (Article 41 eIDAS). Opposabilité juridique automatique et incontestable dans les 27 pays de l'UE.</span>
+              <span><strong>Présomption d'exactitude :</strong> Renversement de la charge de la preuve (Article 41 eIDAS) de plein droit dans les 27 pays de l'UE.</span>
             </div>
+          </div>
+        </div>
+
+        <!-- Association Callout -->
+        <div class="callout-box" style="margin-top: 2.5rem; background-color: var(--bg-surface);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
+            <div style="max-width: 650px;">
+              <h4 style="margin-bottom: 0.35rem;">🏛️ L'Association Open eIDAS : Une Gouvernance d'Intérêt Général</h4>
+              <p style="margin: 0; color: var(--text-muted); font-size: 0.95rem;">
+                Découvrez nos statuts Loi 1901, le strict bénévolat des administrateurs, notre politique de redevabilité publique intégrale et l'accès direct aux documents juridiques hébergés sur GitHub.
+              </p>
+            </div>
+            <a href="association.html" class="btn btn-outline" style="white-space: nowrap;">Découvrir l'Association ➔</a>
           </div>
         </div>
       </div>
@@ -270,10 +285,10 @@ curl -s -X POST https://staging.open-eidas.eu/api/v1/timestamp \
             <div class="service-content">
               <h3>
                 Horodatage RFC 3161 (TSA)
-                <span class="service-status status-staging">Staging Actif (Non Certifié)</span>
+                <span class="service-status status-roadmap">Prototype Opérationnel &bull; Staging en préparation</span>
               </h3>
               <p class="card-desc">
-                Preuve d'intégrité temporelle et d'antériorité juridique opposable. Le premier service est <strong>actuellement déployé en environnement de staging</strong> : il applique rigoureusement le même niveau d'exigence et de confiance technique que l'infrastructure de production cible (clé isolée sous HSM via PKCS#11, synchronisation métrologique continue UTC(OP)/UTC(PTB), journal d'audit chaîné par SHA-256). Il permet à tout éditeur ou intégrateur de valider ses flux dès aujourd'hui, en amont de l'audit formel de qualification eIDAS / ANSSI.
+                Preuve d'intégrité temporelle et d'antériorité juridique opposable. Le premier service est <strong>actuellement un prototype opérationnel développé en Go</strong>, testable en local via Docker avec SoftHSM2 et OpenXPKI. L'infrastructure de staging public est en cours de déploiement et appliquera rigoureusement les normes ETSI EN 319 421 / 422 avec clés sous HSM, avant la démarche de qualification formelle.
               </p>
             </div>
           </div>
@@ -553,19 +568,19 @@ curl -s -X POST https://staging.open-eidas.eu/api/v1/timestamp \
             <div class="faq-group">
               <details class="faq-item" name="faq-group">
                 <summary class="faq-summary">
-                  <span>Quel est le statut actuel du service (Staging vs Qualification eIDAS) ?</span>
+                  <span>Quel est le statut actuel du service (Prototype, Staging &amp; Qualification) ?</span>
                   <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
                 <div class="faq-content">
                   <p>
-                    Le service est actuellement en <strong>phase de Staging technique ouvert</strong> :
+                    Le projet avance selon une feuille de route rigoureuse en trois étapes :
                   </p>
                   <ul>
-                    <li>L'API est déjà pleinement opérationnelle et met en œuvre l'exacte pile cryptographique cible (clés sous HSM, traçabilité UTC continue, journal inaltérable) ;</li>
-                    <li>Les certificats émis en staging sont destinés aux tests d'intégration, aux benchmarks et aux bancs d'essai des éditeurs ;</li>
-                    <li>La <strong>qualification eIDAS formelle</strong> (audit par un organisme d'évaluation de la conformité accrédité et inscription sur la liste de confiance européenne TSL) est le jalon structurant en cours de préparation.</li>
+                    <li><strong>1. Prototype Open Source (Actuel) :</strong> Le moteur d'horodatage en Go est opérationnel et disponible sur GitHub. Tout développeur peut le cloner et le tester immédiatement en local via Docker avec SoftHSM2 et OpenXPKI ;</li>
+                    <li><strong>2. Staging Public (En cours de déploiement) :</strong> L'infrastructure d'hébergement sécurisée et les points de terminaison d'API de test publics sont en cours de déploiement technique ;</li>
+                    <li><strong>3. Qualification eIDAS de Production :</strong> Audit formel de conformité mené par un organisme accrédité (tel que LSTI) selon les normes ETSI EN 319 401 et EN 319 421 / 422, rapport CAR et inscription par l'ANSSI sur la liste de confiance européenne (TSL).</li>
                   </ul>
                 </div>
               </details>
