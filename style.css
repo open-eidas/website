@@ -248,6 +248,55 @@ a:hover {
   height: 1.25rem;
 }
 
+/* Mobile Menu Hamburger Toggle */
+.mobile-nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: 0.5rem;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobile-nav-toggle:hover {
+  background-color: var(--border-color);
+}
+
+.hamburger-bar {
+  display: block;
+  width: 1.2rem;
+  height: 2px;
+  background-color: var(--text-main);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.mobile-nav-toggle.is-open .hamburger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-nav-toggle.is-open .hamburger-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-nav-toggle.is-open .hamburger-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Nav Drawer Base */
+.mobile-nav {
+  display: none;
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -435,7 +484,7 @@ a:hover {
 /* Grid & Cards */
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 1.75rem;
 }
 
@@ -698,26 +747,6 @@ a:hover {
   color: var(--text-main);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-  .service-card {
-    grid-template-columns: 1fr;
-  }
-  .service-number {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.5rem;
-  }
-  .contact-email-badge {
-    font-size: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
 /* ==========================================================================
    eIDAS Educational Section & Levels
    ========================================================================== */
@@ -751,7 +780,7 @@ a:hover {
 
 .levels-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -996,7 +1025,7 @@ a:hover {
 }
 
 .page-title {
-  font-size: 2.75rem;
+  font-size: clamp(1.85rem, 4.5vw, 2.75rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.15;
@@ -1014,7 +1043,7 @@ a:hover {
 /* Process Timeline / Workflow */
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 1.5rem;
   margin: 2.5rem 0;
 }
@@ -1058,7 +1087,7 @@ a:hover {
 /* Document cards (for association repository links) */
 .doc-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 1.5rem;
   margin: 2rem 0;
 }
@@ -1423,7 +1452,7 @@ a:hover {
 
 .cycle-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 1.5rem;
   margin-top: 1.5rem;
 }
@@ -1471,7 +1500,7 @@ a:hover {
 
 .transparency-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 1.5rem;
   margin: 2.5rem 0;
 }
@@ -1534,31 +1563,6 @@ a:hover {
 
 .transparency-card-link:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .pathway-stepper::before {
-    left: 1.75rem;
-  }
-  .pathway-marker {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 0.95rem;
-  }
-  .pathway-milestone {
-    gap: 1.25rem;
-  }
-  .pathway-card {
-    padding: 1.25rem;
-  }
-  .pipeline-track {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .pipeline-arrow {
-    transform: rotate(90deg);
-    padding: 0.5rem 0;
-  }
 }
 
 /* ==========================================================================
@@ -1627,7 +1631,7 @@ a:hover {
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 0.5rem 1.5rem;
 }
 
@@ -1704,7 +1708,7 @@ a:hover {
 
 .legal-kv-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 1.25rem;
   margin: 1.25rem 0;
 }
@@ -1758,5 +1762,296 @@ a:hover {
   line-height: 1.6;
   margin: 0;
 }
+
+/* ==========================================================================
+   Comprehensive Responsive System & Mobile Breakpoints
+   ========================================================================== */
+
+/* Breakpoint: <= 900px (Tablets & Mobile Navigation Activation) */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none !important;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex;
+  }
+
+  .mobile-nav {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s ease;
+    z-index: 49;
+    max-height: calc(100dvh - 4.5rem);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .mobile-nav-inner {
+    padding: 1.25rem 0 1.5rem;
+  }
+
+  .mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    min-height: 44px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-main);
+    text-decoration: none !important;
+    border-radius: 0.5rem;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link:focus {
+    background-color: var(--bg-subtle);
+    color: var(--brand-blue);
+  }
+
+  .mobile-nav-link.active {
+    background-color: rgba(0, 51, 153, 0.08);
+    color: var(--brand-blue);
+    font-weight: 700;
+  }
+
+  [data-theme="dark"] .mobile-nav-link.active {
+    background-color: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+  }
+
+  .mobile-nav-cta {
+    padding: 1rem 0 0;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .mobile-nav-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Breakpoint: <= 768px (Tablets / Medium Screens) */
+@media (max-width: 768px) {
+  .service-card {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .service-number {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+
+  .grid-3,
+  .levels-grid,
+  .doc-grid,
+  .transparency-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pathway-stepper::before {
+    left: 1.75rem;
+  }
+
+  .pathway-marker {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.95rem;
+  }
+
+  .pathway-milestone {
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .pathway-card {
+    padding: 1.25rem;
+  }
+
+  .pipeline-track {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pipeline-node {
+    min-width: 0;
+  }
+
+  .pipeline-arrow {
+    transform: rotate(90deg);
+    padding: 0.5rem 0;
+  }
+}
+
+/* Breakpoint: <= 640px (Mobile Phones) */
+@media (max-width: 640px) {
+  .nav-github-btn {
+    display: none !important;
+  }
+
+  .nav-actions {
+    gap: 0.5rem;
+  }
+
+  .hero {
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2.25rem;
+  }
+
+  .page-hero {
+    padding: 3rem 0 2rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .process-grid,
+  .requirements-grid,
+  .legal-toc-list,
+  .legal-kv-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-table {
+    min-width: 520px;
+  }
+
+  .contact-email-badge {
+    font-size: 0.95rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    word-break: break-all;
+  }
+
+  .footer-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+/* Breakpoint: <= 480px (Extra Compact Phones e.g. 320px-375px) */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .brand-logo-img {
+    height: 32px;
+  }
+
+  .hero-badge {
+    font-size: 0.76rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.65rem, 7vw, 2.25rem);
+  }
+
+  .page-title {
+    font-size: clamp(1.6rem, 6.5vw, 2.2rem);
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .terminal-body {
+    padding: 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .impact-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .legal-section {
+    padding: 1.5rem 1.15rem;
+  }
+
+  .legal-toc {
+    padding: 1.25rem 1rem;
+  }
+
+  .pathway-stepper {
+    padding-left: 0;
+  }
+
+  .pathway-stepper::before {
+    left: 1.15rem;
+  }
+
+  .pathway-marker {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 0.85rem;
+  }
+
+  .pathway-milestone {
+    gap: 0.75rem;
+  }
+
+  .pathway-card {
+    padding: 1rem;
+  }
+
+  .eidas-overview {
+    padding: 1.25rem;
+  }
+}
+
 
 
