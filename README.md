@@ -11,7 +11,7 @@ Dépôt du site vitrine d'**Open eIDAS** ([open-eidas.eu](https://open-eidas.eu)
 - `.htaccess` : Configuration Apache optimisée pour Infomaniak (redirection HTTPS, HSTS, en-têtes de sécurité, MIME types SVG et cache navigateur).
 - `assets/` : Logos et favicons vectoriels SVG officiels.
 - `scripts/deploy-ftp.sh` : Script de déploiement en ligne de commande vers Infomaniak via FTPS.
-- `.github/workflows/deploy.yml` : Workflow de déploiement continu vers Infomaniak via GitHub Actions.
+- `.github/workflows/ftp.yml` : Workflow de déploiement continu vers Infomaniak via GitHub Actions.
 
 ---
 
