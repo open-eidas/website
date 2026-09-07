@@ -57,14 +57,14 @@
       try {
         await navigator.clipboard.writeText(emailToCopy);
         if (copyFeedback) {
-          copyFeedback.textContent = '✔ Adresse email copiée dans le presse-papier !';
+          copyFeedback.textContent = '✔ Adresse email copiée dans le presse-papier\u00A0!';
           setTimeout(() => {
             copyFeedback.textContent = '';
           }, 3000);
         }
       } catch (err) {
         if (copyFeedback) {
-          copyFeedback.textContent = 'Adresse : contact@open-eidas.eu';
+          copyFeedback.textContent = 'Adresse\u00A0: contact@open-eidas.eu';
         }
       }
     });
@@ -79,7 +79,7 @@
         try {
           await navigator.clipboard.writeText(targetElem.textContent.trim());
           const originalText = btn.textContent;
-          btn.textContent = 'Copié !';
+          btn.textContent = 'Copié\u00A0!';
           setTimeout(() => {
             btn.textContent = originalText;
           }, 2000);
