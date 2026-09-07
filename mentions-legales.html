@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Mentions Légales — Open eIDAS</title>
+  <meta name="description" content="Mentions légales du site officiel d'Open eIDAS conformément à la loi LCEN n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- FOUC prevention -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-link" aria-label="Open eIDAS Accueil">
+        <img src="assets/logo-horizontal.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-light">
+        <img src="assets/logo-horizontal-dark.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-dark">
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Accueil</a></li>
+          <li><a href="eidas.html" class="nav-link">Comprendre eIDAS</a></li>
+          <li><a href="association.html" class="nav-link">L'Association</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Basculer le thème clair/sombre" title="Basculer le thème">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="gap: 0.5rem;">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Legal Main Content -->
+  <main>
+    <section class="legal-header">
+      <div class="container">
+        <div class="legal-badge-bar">
+          <span class="legal-badge">Loi LCEN n° 2004-575</span>
+          <span class="legal-badge">Association Loi 1901</span>
+          <span class="legal-badge">Transparence Publique</span>
+        </div>
+        <h1 class="page-title">Mentions Légales</h1>
+        <p class="page-lead" style="max-width: 750px; margin: 0.75rem auto 0 auto;">
+          Informations légales réglementaires relatives à l'éditeur et aux hébergeurs du site officiel de l'Association Open eIDAS.
+        </p>
+      </div>
+    </section>
+
+    <div class="legal-content-wrap">
+
+      <!-- Sommaire -->
+      <nav class="legal-toc" aria-label="Sommaire des mentions légales">
+        <div class="legal-toc-title">
+          <span>📑</span>
+          <span>Sommaire des Mentions Légales</span>
+        </div>
+        <ul class="legal-toc-list">
+          <li><a href="#editeur" class="legal-toc-link">1. Éditeur de la Plateforme</a></li>
+          <li><a href="#hebergeurs" class="legal-toc-link">2. Hébergement &amp; Infrastructure</a></li>
+          <li><a href="#propriete" class="legal-toc-link">3. Propriété Intellectuelle &amp; Licences</a></li>
+          <li><a href="#perimetre" class="legal-toc-link">4. Objet du Site &amp; Limites de Responsabilité</a></li>
+          <li><a href="#droit" class="legal-toc-link">5. Droit Applicable &amp; Litiges</a></li>
+        </ul>
+      </nav>
+
+      <!-- 1. Éditeur -->
+      <article class="legal-section" id="editeur">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">🏛️</span>
+          <h2 class="legal-section-title">1. Éditeur du Site Internet</h2>
+        </div>
+        <p>
+          Le site web <strong>open-eidas.eu</strong> est édité par l'<strong>Association Open eIDAS</strong>, organisme à but non lucratif et d'intérêt général régi par la loi du 1<sup>er</sup> juillet 1901 et le décret du 16 août 1901.
+        </p>
+
+        <div class="legal-kv-grid">
+          <div class="legal-kv-item">
+            <div class="legal-kv-label">Dénomination Légale</div>
+            <div class="legal-kv-value">Open eIDAS</div>
+          </div>
+          <div class="legal-kv-item">
+            <div class="legal-kv-label">Forme Juridique</div>
+            <div class="legal-kv-value">Association déclarée (Loi 1901)</div>
+          </div>
+          <div class="legal-kv-item">
+            <div class="legal-kv-label">Immatriculation Préfecture (RNA)</div>
+            <div class="legal-kv-value">En cours d'enregistrement (Dépôt en Préfecture)</div>
+          </div>
+          <div class="legal-kv-item">
+            <div class="legal-kv-label">Identifiants SIREN / SIRET (INSEE)</div>
+            <div class="legal-kv-value">En cours d'attribution</div>
+          </div>
+          <div class="legal-kv-item">
+            <div class="legal-kv-label">Directeur de la Publication</div>
+            <div class="legal-kv-value">Philippe Vienne (Président de l'Association)</div>
+          </div>
+          <div class="legal-kv-item">
+            <div class="legal-kv-label">Contact Électronique Officiel</div>
+            <div class="legal-kv-value"><a href="mailto:contact@open-eidas.eu" style="color: var(--brand-blue); text-decoration: underline;">contact@open-eidas.eu</a></div>
+          </div>
+        </div>
+
+        <div class="legal-highlight-box">
+          <h5>💡 Objet Social (Article 2 des Statuts)</h5>
+          <p>
+            Développer, maintenir et exploiter des infrastructures ouvertes de confiance numérique conformes aux règlements européens eIDAS (UE n° 910/2014 et UE n° 2024/1183) ; fournir à titre d'intérêt général des services de confiance qualifiés (horodatage, cachet et signature électronique) sans but lucratif ; et promouvoir la souveraineté technologique européenne.
+          </p>
+        </div>
+      </article>
+
+      <!-- 2. Hébergeurs -->
+      <article class="legal-section" id="hebergeurs">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">🌐</span>
+          <h2 class="legal-section-title">2. Hébergement &amp; Infrastructure Technique</h2>
+        </div>
+        <p>
+          Pour garantir une résilience élevée et respecter les principes de souveraineté européenne, la diffusion du site web Open eIDAS repose sur deux infrastructures indépendantes :
+        </p>
+
+        <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+          <div style="background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.25rem;">🇨🇭</span>
+              <h4 style="font-size: 1.05rem; color: var(--brand-navy); margin: 0;">Hébergement Principal (Suisse / UE)</h4>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.5rem 0;">
+              <strong>Infomaniak Network SA</strong><br>
+              Rue Eugène-Marziano 25, 1227 Les Acacias, Genève, Suisse<br>
+              Registre du commerce : CHE-103.167.648<br>
+              Site web : <a href="https://www.infomaniak.com" target="_blank" rel="noopener noreferrer" style="color: var(--brand-blue); text-decoration: underline;">www.infomaniak.com</a>
+            </p>
+            <p style="font-size: 0.8rem; color: var(--text-subtle); margin: 0;">
+              *Datacenters alimentés à 100 % en énergie renouvelable, certifiés ISO 27001, ISO 14001, ISO 50001.*
+            </p>
+          </div>
+
+          <div style="background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 0.75rem; padding: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.25rem;">🐙</span>
+              <h4 style="font-size: 1.05rem; color: var(--brand-navy); margin: 0;">Miroir Statique &amp; Dépôt de Code</h4>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 0.5rem 0;">
+              <strong>GitHub, Inc. (GitHub Pages)</strong><br>
+              88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA<br>
+              Support : <a href="https://support.github.com" target="_blank" rel="noopener noreferrer" style="color: var(--brand-blue); text-decoration: underline;">support.github.com</a><br>
+              Site web : <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer" style="color: var(--brand-blue); text-decoration: underline;">pages.github.com</a>
+            </p>
+            <p style="font-size: 0.8rem; color: var(--text-subtle); margin: 0;">
+              *Miroir statique automatisé synchronisé avec le dépôt git public officiel.*
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Propriété Intellectuelle & Licences -->
+      <article class="legal-section" id="propriete">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">📜</span>
+          <h2 class="legal-section-title">3. Propriété Intellectuelle &amp; Licences Libres</h2>
+        </div>
+        <p>
+          L'Association Open eIDAS est fermement attachée au principe du <strong>Bien Commun Numérique</strong> et du logiciel libre. L'ensemble de ses réalisations est régi par des licences garantissant la liberté de consultation, de modification et d'audit :
+        </p>
+
+        <ul>
+          <li>
+            <strong>Logiciels et briques cryptographiques :</strong> Tous les codes sources développés par Open eIDAS (daemons d'horodatage RFC 3161, connecteurs PKCS#11, passerelles d'API et validateurs) sont distribués sous licence <strong>GNU Affero General Public License version 3 (AGPL-3.0)</strong>. Le code est auditable publiquement sur <a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer" style="color: var(--brand-blue); text-decoration: underline;">GitHub</a>.
+          </li>
+          <li>
+            <strong>Documentation, statuts et textes de gouvernance :</strong> Les statuts, règlements intérieurs, chartes d'éthique et guides de cadrage technique sont distribués sous licence <strong>Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 International (CC BY-SA 4.0)</strong>.
+          </li>
+          <li>
+            <strong>Identité visuelle et marque :</strong> La marque nominale « Open eIDAS », le sceau circulaire européen et les déclinaisons vectorielles du logo sont des signes distinctifs protégés de l'association. Leur réutilisation est autorisée pour référencer loyalement le projet, à l'exclusion de tout usage de nature à tromper les tiers ou à créer une confusion sur le caractère officiellement qualifié d'un service tiers non agréé.
+          </li>
+        </ul>
+      </article>
+
+      <!-- 4. Périmètre & Responsabilité -->
+      <article class="legal-section" id="perimetre">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">⚖️</span>
+          <h2 class="legal-section-title">4. Périmètre du Site &amp; Limites de Responsabilité</h2>
+        </div>
+        <p>
+          Le présent site a pour vocation exclusive de présenter le projet associatif Open eIDAS, ses statuts, ses travaux de recherche et développement sur les services de confiance qualifiés européens, ainsi que les modalités pour soutenir ou rejoindre l'organisation.
+        </p>
+
+        <div class="callout-box" style="margin: 1.25rem 0;">
+          <h4>⚠️ Statut de Prototype en Développement Actif</h4>
+          <p>
+            Open eIDAS est actuellement en phase de développement logiciel open-source. Les démonstrateurs et instructions locales fournis sont destinés à des fins d'expérimentation et d'évaluation technique. L'accès à la qualification officielle et aux effets juridiques irréfragables du niveau qualifié eIDAS (Art. 25.2 et Art. 41) interviendra à l'issue du cycle d'audit réglementaire mené avec un organisme d'évaluation accrédité (LSTI) et de la décision de supervision de l'ANSSI.
+          </p>
+        </div>
+
+        <p>
+          L'association s'efforce de fournir des informations précises et à jour sur les normes eIDAS (910/2014) et eIDAS 2.0 (2024/1183). Toutefois, les contenus du site sont présentés à titre informatif et ne sauraient se substituer à une consultation juridique personnalisée auprès d'un professionnel du droit.
+        </p>
+        <p>
+          Open eIDAS ne saurait être tenue responsable du contenu des sites tiers vers lesquels des liens hypertextes sont établis (sites de l'administration, portails européens, documentation GitHub externe).
+        </p>
+      </article>
+
+      <!-- 5. Droit Applicable -->
+      <article class="legal-section" id="droit">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">🇫🇷</span>
+          <h2 class="legal-section-title">5. Droit Applicable &amp; Juridiction Compétente</h2>
+        </div>
+        <p>
+          Le présent site, ses mentions légales et toute relation entre l'Association Open eIDAS et les utilisateurs sont exclusivement régis par le <strong>droit français</strong>.
+        </p>
+        <p>
+          En cas de litige non résolu par voie amiable, compétence exclusive est attribuée aux tribunaux compétents du ressort de la <strong>Cour d'appel compétente du siège de l'association</strong>.
+        </p>
+      </article>
+
+      <!-- Liens complémentaires -->
+      <div style="text-align: center; margin: 3rem 0;">
+        <a href="donnees-personnelles.html" class="btn btn-primary" style="margin-right: 0.5rem;">Consulter la Politique de Données Personnelles</a>
+        <a href="association.html" class="btn btn-outline">Découvrir l'Association &amp; ses Statuts</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p><strong>Open eIDAS</strong> — Association Loi 1901 à but non lucratif dédiée à la confiance numérique européenne.</p>
+        <p style="margin-top: 0.25rem;">Distribué sous licence libre <strong>GNU Affero GPL v3 (AGPL-3.0)</strong>.</p>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="mailto:contact@open-eidas.eu">contact@open-eidas.eu</a></li>
+        <li><a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a></li>
+        <li><a href="https://github.com/open-eidas/organisation" target="_blank" rel="noopener noreferrer">Statuts &amp; Gouvernance</a></li>
+        <li><a href="eidas.html">Comprendre eIDAS</a></li>
+        <li><a href="association.html">L'Association</a></li>
+        <li><a href="mentions-legales.html" style="font-weight: 700; color: var(--text-main);">Mentions Légales</a></li>
+        <li><a href="donnees-personnelles.html">Données Personnelles</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Standardized Interactive JavaScript -->
+  <script defer src="script.js"></script>
+</body>
+</html>

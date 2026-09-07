@@ -509,39 +509,15 @@
         <li><a href="mailto:contact@open-eidas.eu">contact@open-eidas.eu</a></li>
         <li><a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a></li>
         <li><a href="https://github.com/open-eidas/organisation" target="_blank" rel="noopener noreferrer">Statuts &amp; Gouvernance</a></li>
+        <li><a href="index.html">Accueil</a></li>
         <li><a href="association.html">L'Association</a></li>
+        <li><a href="mentions-legales.html">Mentions Légales</a></li>
+        <li><a href="donnees-personnelles.html">Données Personnelles</a></li>
       </ul>
     </div>
   </footer>
 
-  <!-- Theme Script -->
-  <script>
-    const themeBtn = document.getElementById('theme-toggle');
-    const sunIcon = themeBtn.querySelector('.sun-icon');
-    const moonIcon = themeBtn.querySelector('.moon-icon');
-
-    function updateThemeUI(theme) {
-      if (theme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-      }
-    }
-
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    updateThemeUI(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
-
-    themeBtn.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('theme', nextTheme);
-      updateThemeUI(nextTheme);
-    });
-  </script>
+  <!-- Standardized Interactive JavaScript -->
+  <script defer src="script.js"></script>
 </body>
 </html>

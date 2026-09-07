@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Politique de Protection des Données Personnelles — Open eIDAS</title>
+  <meta name="description" content="Politique de protection des données personnelles et de confidentialité d'Open eIDAS conformément au RGPD (Règlement UE 2016/679) et à la loi Informatique et Libertés.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- FOUC prevention -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-link" aria-label="Open eIDAS Accueil">
+        <img src="assets/logo-horizontal.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-light">
+        <img src="assets/logo-horizontal-dark.svg" alt="Open eIDAS Logo" class="brand-logo-img logo-dark">
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Accueil</a></li>
+          <li><a href="eidas.html" class="nav-link">Comprendre eIDAS</a></li>
+          <li><a href="association.html" class="nav-link">L'Association</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Basculer le thème clair/sombre" title="Basculer le thème">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="gap: 0.5rem;">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Legal Main Content -->
+  <main>
+    <section class="legal-header">
+      <div class="container">
+        <div class="legal-badge-bar">
+          <span class="legal-badge">RGPD (Règlement UE 2016/679)</span>
+          <span class="legal-badge">Loi Informatique et Libertés</span>
+          <span class="legal-badge">Zéro Cookie Publicitaire</span>
+        </div>
+        <h1 class="page-title">Politique de Données Personnelles</h1>
+        <p class="page-lead" style="max-width: 780px; margin: 0.75rem auto 0 auto;">
+          Notre engagement ferme pour la protection de la vie privée, la minimisation des données et le respect intégral des droits des citoyens et des membres.
+        </p>
+      </div>
+    </section>
+
+    <div class="legal-content-wrap">
+
+      <!-- Sommaire -->
+      <nav class="legal-toc" aria-label="Sommaire de la politique de données personnelles">
+        <div class="legal-toc-title">
+          <span>📑</span>
+          <span>Sommaire de la Politique de Confidentialité</span>
+        </div>
+        <ul class="legal-toc-list">
+          <li><a href="#engagements" class="legal-toc-link">1. Principes Fondamentaux &amp; Zéro Cookie</a></li>
+          <li><a href="#responsable" class="legal-toc-link">2. Responsable de Traitement &amp; DPO</a></li>
+          <li><a href="#traitements" class="legal-toc-link">3. Données Collectées, Finalités &amp; Durées</a></li>
+          <li><a href="#caviardage" class="legal-toc-link">4. Transparence Publique &amp; Caviardage RGPD</a></li>
+          <li><a href="#destinataires" class="legal-toc-link">5. Destinataires &amp; Absence de Revente</a></li>
+          <li><a href="#transferts" class="legal-toc-link">6. Hébergement &amp; Transferts hors UE</a></li>
+          <li><a href="#droits" class="legal-toc-link">7. Vos Droits &amp; Modalités d'Exercice</a></li>
+          <li><a href="#securite" class="legal-toc-link">8. Sécurité &amp; Cryptographie</a></li>
+          <li><a href="#reclamation" class="legal-toc-link">9. Réclamation auprès de la CNIL</a></li>
+        </ul>
+      </nav>
+
+      <!-- 1. Principes & Zéro Cookie -->
+      <article class="legal-section" id="engagements">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">🛡️</span>
+          <h2 class="legal-section-title">1. Principes Fondamentaux &amp; Respect de la Vie Privée (Privacy by Design)</h2>
+        </div>
+        <p>
+          L'Association Open eIDAS considère la vie privée comme un droit fondamental inaliénable. Le projet applique rigoureusement le principe de <strong>minimisation des données</strong> (Article 5.1.c du RGPD) : nous ne collectons que le strict minimum technique requis pour le fonctionnement loyal du service.
+        </p>
+
+        <div class="legal-highlight-box">
+          <h5>🍪 Politique Relative aux Cookies et Traceurs : Zéro Traceur Tiers</h5>
+          <p>
+            Le site web <strong>open-eidas.eu</strong> n'utilise <strong>aucun cookie publicitaire, aucun outil d'analyse comportementale ou de profilage intrusif (aucun tracker Google Analytics, Meta Pixel, traceurs publicitaires ou réseaux sociaux)</strong>.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            Le choix du thème visuel (clair ou sombre) est mémorisé exclusivement sur votre terminal dans le stockage local de votre navigateur (<code>localStorage</code>) et n'est jamais transmis à nos serveurs.
+          </p>
+          <p style="margin-top: 0.5rem; font-weight: 600; color: var(--brand-blue);">
+            En application directe des lignes directrices de la CNIL relatives aux cookies et traceurs exemptés de consentement, aucun bandeau intrusif n'est nécessaire ni affiché.
+          </p>
+        </div>
+      </article>
+
+      <!-- 2. Responsable de Traitement & DPO -->
+      <article class="legal-section" id="responsable">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">🏢</span>
+          <h2 class="legal-section-title">2. Responsable de Traitement &amp; Délégué à la Protection des Données</h2>
+        </div>
+        <p>
+          Le responsable du traitement des données personnelles collectées dans le cadre du site web et des activités associatives est l'<strong>Association Open eIDAS</strong>, représentée par son Bureau exécutif.
+        </p>
+
+        <div class="legal-kv-grid">
+          <div class="legal-kv-item">
+            <div class="legal-kv-label">Responsable du Traitement</div>
+            <div class="legal-kv-value">Association Open eIDAS (Loi 1901)</div>
+          </div>
+          <div class="legal-kv-item">
+            <div class="legal-kv-label">Point de Contact RGPD / DPO</div>
+            <div class="legal-kv-value"><a href="mailto:dpo@open-eidas.eu" style="color: var(--brand-blue); text-decoration: underline;">dpo@open-eidas.eu</a></div>
+          </div>
+          <div class="legal-kv-item">
+            <div class="legal-kv-label">Contact Général Confidentialité</div>
+            <div class="legal-kv-value"><a href="mailto:contact@open-eidas.eu" style="color: var(--brand-blue); text-decoration: underline;">contact@open-eidas.eu</a></div>
+          </div>
+          <div class="legal-kv-item">
+            <div class="legal-kv-label">Autorité Nationale de Contrôle</div>
+            <div class="legal-kv-value">CNIL (France)</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Tableau des Traitements -->
+      <article class="legal-section" id="traitements">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">📊</span>
+          <h2 class="legal-section-title">3. Données Collectées, Finalités, Bases Légales &amp; Durées de Conservation</h2>
+        </div>
+        <p>
+          Les traitements de données personnelles mis en œuvre par Open eIDAS sont circonscrits aux nécessités opérationnelles suivantes :
+        </p>
+
+        <div class="table-responsive">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Activité / Traitement</th>
+                <th>Données Concernées</th>
+                <th>Finalité Légitime</th>
+                <th>Base Légale (RGPD)</th>
+                <th>Durée de Conservation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Logs techniques de navigation</strong></td>
+                <td>Adresse IP, date et heure d'accès, ressource demandée, code réponse HTTP, chaîne User-Agent.</td>
+                <td>Sécurité des infrastructures, détection d'attaques (DDoS), maintien de la disponibilité.</td>
+                <td>Intérêt légitime (Art. 6.1.f) &amp; Obligation légale LCEN (Art. 6.1.c).</td>
+                <td>12 mois maximum glissants, puis suppression automatique.</td>
+              </tr>
+              <tr>
+                <td><strong>Correspondance &amp; Prise de contact</strong></td>
+                <td>Nom, prénom, adresse e-mail, objet et corps du message électronique.</td>
+                <td>Répondre aux questions, traiter les demandes d'adhésion, de mécénat ou de contribution technique.</td>
+                <td>Intérêt légitime / Mesures précontractuelles (Art. 6.1.b / 6.1.f).</td>
+                <td>Durée des échanges + archivage de 3 ans maximum en l'absence de suite.</td>
+              </tr>
+              <tr>
+                <td><strong>Gestion des Adhérents &amp; Donateurs</strong></td>
+                <td>Identité, courriel, collège d'adhérent, montants versés, justificatifs de paiement.</td>
+                <td>Gestion du registre des membres, convocations aux AG, émission des reçus fiscaux (CGI).</td>
+                <td>Exécution de la relation associative (Art. 6.1.b) &amp; Obligation légale fiscale (Art. 6.1.c).</td>
+                <td>Durée de l'adhésion + 6 ans pour les pièces comptables (Art. L102 B LPF).</td>
+              </tr>
+              <tr>
+                <td><strong>Cérémonies de clés &amp; Audits eIDAS</strong></td>
+                <td>Noms, qualités et signatures des officiers de sécurité et témoins assermentés.</td>
+                <td>Garantie d'intégrité de la chaîne de confiance cryptographique et preuve de conformité ETSI.</td>
+                <td>Obligation légale eIDAS (Règlement UE 910/2014 &amp; ETSI EN 319 401).</td>
+                <td>Durée de validité des clés de certification racine + 10 ans (plan d'assurance).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- 4. Transparence Publique & Caviardage -->
+      <article class="legal-section" id="caviardage">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">🔐</span>
+          <h2 class="legal-section-title">4. Transparence Publique &amp; Caviardage Systématique (Redevabilité &amp; RGPD)</h2>
+        </div>
+        <p>
+          L'Association Open eIDAS applique un principe novateur de <strong>Redevabilité Publique Intégrale</strong> (Article 3 des Statuts et Titre I du Règlement Intérieur) : toutes les délibérations, réunions, budgets et comptes-rendus d'Assemblées Générales sont publiés en accès libre sur notre dépôt public GitHub.
+        </p>
+
+        <div class="legal-highlight-box">
+          <h5>🛡️ Sanctuarisation de la Vie Privée des Personnes Physiques</h5>
+          <p>
+            Cette transparence institutionnelle ne s'exerce <strong>jamais au détriment de la vie privée des citoyens</strong>. Conformément aux exigences du RGPD et à notre Charte d'Éthique :
+          </p>
+          <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            <li><strong>Caviardage systématique préalable :</strong> Avant tout versement public d'un procès-verbal ou compte-rendu, les coordonnées privées (adresses personnelles, numéros de téléphone, adresses e-mails personnelles) des adhérents et votants sont anonymisées ou pseudonymisées.</li>
+            <li><strong>Secret des dons des particuliers :</strong> Les montants nominatifs des micro-dons ou cotisations de personnes physiques sont protégés contre tout doxxing et consolidés de façon purement agrégée dans les rapports financiers annuels.</li>
+            <li><strong>Seuls les représentants légaux</strong> (membres élus du Bureau et mandataires de personnes morales partenaires) apparaissent publiquement dans l'exercice formel de leur mandat associatif.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 5. Destinataires & Absence de Revente -->
+      <article class="legal-section" id="destinataires">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">🚫</span>
+          <h2 class="legal-section-title">5. Destinataires des Données &amp; Interdiction de Toute Exploitation Commerciale</h2>
+        </div>
+        <p>
+          Les données personnelles collectées par l'Association Open eIDAS sont destinées <strong>exclusivement</strong> aux personnes dûment habilitées au sein de l'organisation : membres du Bureau, administrateurs et délégué à la protection des données.
+        </p>
+        <p>
+          <strong>Engagement formel de non-commercialisation :</strong> Open eIDAS ne vend, ne loue, ne cède ni n'échange aucune donnée personnelle à aucun tiers, régie publicitaire, courtier de données ou partenaire commercial, à quelque titre que ce soit.
+        </p>
+        <p>
+          Les seules communications à des tiers interviennent strictement dans le cadre de nos obligations légales (administration fiscale pour les reçus de dons, organismes d'audit de conformité eIDAS accrédités COFRAC tels que LSTI, ou autorités judiciaires sur réquisition formelle).
+        </p>
+      </article>
+
+      <!-- 6. Hébergement & Transferts hors UE -->
+      <article class="legal-section" id="transferts">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">🌍</span>
+          <h2 class="legal-section-title">6. Localisation des Données &amp; Transferts hors Union Européenne</h2>
+        </div>
+        <p>
+          Open eIDAS privilégie les hébergeurs garantissant un haut niveau de protection des données :
+        </p>
+        <ul>
+          <li>
+            <strong>Infomaniak Network SA (Genève, Suisse) :</strong> Hébergement principal des services et serveurs web. La Suisse bénéficie d'une <strong>décision d'adéquation formelle de la Commission Européenne</strong>, constatant qu'elle assure un niveau de protection des données personnelles équivalent à celui du droit de l'Union Européenne.
+          </li>
+          <li>
+            <strong>GitHub Pages (GitHub, Inc., États-Unis) :</strong> Diffusion statique du site miroir et des dépôts open-source publics. Les transferts éventuels sont strictement encadrés par les Clauses Contractuelles Types (CCT) de la Commission Européenne et l'adhésion au Cadre de protection des données UE-États-Unis (Data Privacy Framework).
+          </li>
+        </ul>
+      </article>
+
+      <!-- 7. Droits des Utilisateurs -->
+      <article class="legal-section" id="droits">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">⚖️</span>
+          <h2 class="legal-section-title">7. Vos Droits Informatique &amp; Libertés (Articles 15 à 22 du RGPD)</h2>
+        </div>
+        <p>
+          Conformément au Règlement Général sur la Protection des Données et à la loi Informatique et Libertés du 6 janvier 1978 modifiée, vous bénéficiez à tout moment des droits suivants sur les données qui vous concernent :
+        </p>
+
+        <div class="grid-2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+          <div style="background-color: var(--bg-surface); padding: 1.25rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+            <h4 style="font-size: 0.95rem; color: var(--brand-navy); margin: 0 0 0.25rem 0;">🔍 Droit d'Accès (Art. 15)</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Obtenir la confirmation que des données vous concernant sont traitées et en recevoir une copie intégrale.</p>
+          </div>
+          <div style="background-color: var(--bg-surface); padding: 1.25rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+            <h4 style="font-size: 0.95rem; color: var(--brand-navy); margin: 0 0 0.25rem 0;">✏️ Droit de Rectification (Art. 16)</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Exiger la mise à jour ou la correction de données inexactes ou incomplètes.</p>
+          </div>
+          <div style="background-color: var(--bg-surface); padding: 1.25rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+            <h4 style="font-size: 0.95rem; color: var(--brand-navy); margin: 0 0 0.25rem 0;">🗑️ Droit à l'Effacement (Art. 17)</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Demander la suppression définitive de vos données personnelles sous réserve des obligations légales de conservation (fiscale/comptable).</p>
+          </div>
+          <div style="background-color: var(--bg-surface); padding: 1.25rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+            <h4 style="font-size: 0.95rem; color: var(--brand-navy); margin: 0 0 0.25rem 0;">⏸️ Droit à la Limitation (Art. 18)</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Geler temporairement l'utilisation de vos données le temps de l'instruction d'une contestation.</p>
+          </div>
+          <div style="background-color: var(--bg-surface); padding: 1.25rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+            <h4 style="font-size: 0.95rem; color: var(--brand-navy); margin: 0 0 0.25rem 0;">📦 Droit à la Portabilité (Art. 20)</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Recevoir vos données fournies dans un format ouvert, structuré et lisible par machine.</p>
+          </div>
+          <div style="background-color: var(--bg-surface); padding: 1.25rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+            <h4 style="font-size: 0.95rem; color: var(--brand-navy); margin: 0 0 0.25rem 0;">✋ Droit d'Opposition (Art. 21)</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Vous opposer à tout moment, pour des motifs légitimes, à un traitement fondé sur notre intérêt légitime.</p>
+          </div>
+        </div>
+
+        <div class="legal-highlight-box">
+          <h5>✉️ Comment exercer vos droits ?</h5>
+          <p>
+            Vous pouvez exercer l'ensemble de ces droits par simple demande écrite, en précisant votre identité et l'objet de votre demande, adressée à :
+          </p>
+          <p style="margin-top: 0.5rem;">
+            Courriel dédié : <a href="mailto:dpo@open-eidas.eu" style="color: var(--brand-blue); text-decoration: underline; font-weight: 600;">dpo@open-eidas.eu</a> ou <a href="mailto:contact@open-eidas.eu" style="color: var(--brand-blue); text-decoration: underline;">contact@open-eidas.eu</a>
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-subtle);">
+            Une réponse vous sera adressée dans un délai maximal d'<strong>un mois</strong> à compter de la réception de votre demande (délai prolongeable de deux mois en cas de complexité particulière du dossier, avec information motivée).
+          </p>
+        </div>
+      </article>
+
+      <!-- 8. Sécurité & Cryptographie -->
+      <article class="legal-section" id="securite">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">🔒</span>
+          <h2 class="legal-section-title">8. Mesures Techniques &amp; Organisationnelles de Sécurité</h2>
+        </div>
+        <p>
+          En sa qualité de projet d'infrastructure de confiance numérique, Open eIDAS met en œuvre les standards de sécurité les plus élevés :
+        </p>
+        <ul>
+          <li><strong>Chiffrement des communications :</strong> Protocole TLS 1.3 avec HSTS (HTTP Strict Transport Security) sur tous les domaines et sous-domaines.</li>
+          <li><strong>Modules matériels HSM :</strong> Séparation cryptographique et inviolabilité physique des clés de confiance sous modules certifiés Critères Communs EAL4+ (QSCD).</li>
+          <li><strong>Contrôle conjoint (Dual Custody) :</strong> Principe de la règle des deux personnes (2-man rule) pour toutes les opérations critiques de maintenance d'infrastructure.</li>
+          <li><strong>Gestion des vulnérabilités (CVD) :</strong> Politique de divulgation coordonnée des vulnérabilités avec embargo strict (90 jours max) avant annonce publique, protégeant l'intégrité du réseau.</li>
+        </ul>
+      </article>
+
+      <!-- 9. Réclamation CNIL -->
+      <article class="legal-section" id="reclamation">
+        <div class="legal-section-header">
+          <span class="legal-section-icon">🏛️</span>
+          <h2 class="legal-section-title">9. Droit d'Introduire une Réclamation auprès de la CNIL</h2>
+        </div>
+        <p>
+          Si vous estimez, après nous avoir contactés, que vos droits Informatique et Libertés ne sont pas respectés ou que le traitement de vos données n'est pas conforme aux règles de protection des données, vous avez le droit d'introduire une réclamation auprès de l'autorité de contrôle compétente :
+        </p>
+        <div style="background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 0.5rem; padding: 1.25rem; margin-top: 1rem;">
+          <p style="margin: 0; font-weight: 600; color: var(--brand-navy);">
+            Commission Nationale de l'Informatique et des Libertés (CNIL)
+          </p>
+          <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            3 Place de Fontenoy - TSA 80715 - 75334 PARIS CEDEX 07<br>
+            Téléphone : +33 (0)1 53 73 22 22<br>
+            Plainte en ligne : <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener noreferrer" style="color: var(--brand-blue); text-decoration: underline;">www.cnil.fr/fr/plaintes</a>
+          </p>
+        </div>
+      </article>
+
+      <!-- Liens complémentaires -->
+      <div style="text-align: center; margin: 3rem 0;">
+        <a href="mentions-legales.html" class="btn btn-primary" style="margin-right: 0.5rem;">Consulter les Mentions Légales</a>
+        <a href="association.html" class="btn btn-outline">Découvrir l'Association &amp; ses Statuts</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p><strong>Open eIDAS</strong> — Association Loi 1901 à but non lucratif dédiée à la confiance numérique européenne.</p>
+        <p style="margin-top: 0.25rem;">Distribué sous licence libre <strong>GNU Affero GPL v3 (AGPL-3.0)</strong>.</p>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="mailto:contact@open-eidas.eu">contact@open-eidas.eu</a></li>
+        <li><a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a></li>
+        <li><a href="https://github.com/open-eidas/organisation" target="_blank" rel="noopener noreferrer">Statuts &amp; Gouvernance</a></li>
+        <li><a href="eidas.html">Comprendre eIDAS</a></li>
+        <li><a href="association.html">L'Association</a></li>
+        <li><a href="mentions-legales.html">Mentions Légales</a></li>
+        <li><a href="donnees-personnelles.html" style="font-weight: 700; color: var(--text-main);">Données Personnelles</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Standardized Interactive JavaScript -->
+  <script defer src="script.js"></script>
+</body>
+</html>
