@@ -26,7 +26,7 @@
   // Initial theme sync
   const savedTheme = localStorage.getItem('theme');
   const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+  const initialTheme = savedTheme || document.documentElement.getAttribute('data-theme') || (systemPrefersDark ? 'dark' : 'light');
   updateThemeUI(initialTheme);
 
   // Toggle button listener
@@ -137,11 +137,38 @@
       }
     });
 
-    // Close on window resize to desktop
+    // Close on window resize to desktop (> 1024px breakpoint)
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 900 && mobileNav.classList.contains('is-open')) {
+      if (window.innerWidth > 1024 && mobileNav.classList.contains('is-open')) {
         setMobileNavOpen(false);
       }
+    });
+
+    // Check URL hash for direct menu opening
+    if (window.location.hash === '#menu') {
+      setMobileNavOpen(true);
+    }
+  }
+
+  // --- 5. Hero Showcase Terminal Tabs ---
+  const termTabs = document.querySelectorAll('.showcase-tab-btn');
+  const codeStaging = document.getElementById('code-staging');
+  const codeDocker = document.getElementById('code-docker');
+
+  if (termTabs.length && codeStaging && codeDocker) {
+    termTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        termTabs.forEach((t) => t.classList.remove('active'));
+        tab.classList.add('active');
+        const term = tab.getAttribute('data-term');
+        if (term === 'staging') {
+          codeStaging.style.display = 'block';
+          codeDocker.style.display = 'none';
+        } else if (term === 'docker') {
+          codeStaging.style.display = 'none';
+          codeDocker.style.display = 'block';
+        }
+      });
     });
   }
 
