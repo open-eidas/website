@@ -2,6 +2,13 @@
 
 Dépôt du site vitrine d'**Open eIDAS** ([open-eidas.eu](https://open-eidas.eu)), hébergé chez **Infomaniak**.
 
+### Écosystème & Hébergements
+- **Site web officiel & Messagerie** : [open-eidas.eu](https://open-eidas.eu) — Hébergé chez **Infomaniak** (Suisse, décision d'adéquation RGPD)
+- **Démonstrateur Web Interactif** : [demo.open-eidas.eu](https://demo.open-eidas.eu) — Hébergé sur **GitHub Pages** (GitHub, Inc.)
+- **Infrastructure PKI & API de Staging** : `api.staging.open-eidas.eu` — Hébergée chez **Scaleway** (France / Union Européenne)
+- **Code source & Moteur Rust** : [github.com/open-eidas/open-eidas](https://github.com/open-eidas/open-eidas)
+- **Organisation & Textes fondateurs** : [github.com/open-eidas/organisation](https://github.com/open-eidas/organisation)
+
 ---
 
 ## Structure du site

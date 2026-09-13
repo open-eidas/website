@@ -48,6 +48,7 @@
           <li><a href="eidas.html" class="nav-link">Comprendre eIDAS</a></li>
           <li><a href="association.html" class="nav-link">L'Association</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="https://demo.open-eidas.eu" target="_blank" rel="noopener noreferrer" class="nav-link" style="color: var(--brand-blue); font-weight: 600;">Démo ↗</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
@@ -63,6 +64,12 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
           </svg>
         </button>
+
+        <!-- Live Demo CTA -->
+        <a href="https://demo.open-eidas.eu" target="_blank" rel="noopener noreferrer" class="nav-demo-btn" aria-label="Tester la Démo en ligne (nouvelle fenêtre)">
+          <span class="nav-demo-pulse"></span>
+          <span>Démo en direct</span>
+        </a>
 
         <!-- GitHub Repo CTA -->
         <a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer" class="btn btn-outline nav-github-btn" aria-label="Voir le projet sur GitHub">
@@ -86,14 +93,19 @@
       <div class="container mobile-nav-inner">
         <ul class="mobile-nav-links">
           <li><a href="index.html" class="mobile-nav-link active" aria-current="page">Accueil</a></li>
+          <li><a href="https://demo.open-eidas.eu" target="_blank" rel="noopener noreferrer" class="mobile-nav-link" style="color: var(--brand-blue); font-weight: 600;">🚀 Démo en direct (demo.open-eidas.eu) ↗</a></li>
           <li><a href="eidas.html" class="mobile-nav-link">Comprendre eIDAS</a></li>
           <li><a href="association.html" class="mobile-nav-link">L'Association</a></li>
           <li><a href="#services" class="mobile-nav-link">Services</a></li>
           <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
           <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
         </ul>
-        <div class="mobile-nav-cta">
-          <a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        <div class="mobile-nav-cta" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="https://demo.open-eidas.eu" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="justify-content: center; gap: 0.5rem;">
+            <span>🚀 Tester la Démo en direct</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="justify-content: center;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
             </svg>
@@ -109,8 +121,8 @@
     <section class="hero">
       <div class="container">
         <div class="hero-badge">
-          <span>🛠️</span>
-          <span>Prototype Open Source en développement actif&nbsp;— Staging en cours de déploiement</span>
+          <span class="nav-demo-pulse"></span>
+          <span>Démonstrateur en direct disponible sur <a href="https://demo.open-eidas.eu" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; font-weight: 700;">demo.open-eidas.eu</a> &bull; Staging PKI Scaleway actif</span>
         </div>
 
         <h1 class="hero-title">
@@ -126,13 +138,68 @@
         <div class="staging-banner" role="status">
           <span class="staging-banner-icon">ℹ️</span>
           <div class="staging-banner-content">
-            <strong>Staging public en ligne&nbsp;— projet en cours de qualification&nbsp;:</strong> L'environnement de staging public est déployé et interrogeable (<a href="https://api.staging.open-eidas.eu" target="_blank" rel="noopener noreferrer">api.staging.open-eidas.eu</a>), mais le service n'est <strong>pas encore certifié eIDAS</strong>. Le code source est un <strong>prototype opérationnel open source</strong> pleinement fonctionnel (Rust, SoftHSM2, autorité de certification maison, journal chaîné SHA-256), testable en local comme sur ce staging. L'audit de qualification eIDAS / ANSSI reste à mener avant toute mise en production certifiée.
+            <strong>Staging public Scaleway &amp; Démonstrateur GitHub&nbsp;— projet en cours de qualification&nbsp;:</strong> L'infrastructure PKI de test est déployée sur le cloud souverain français <strong>Scaleway</strong> et interrogeable via son API publique (<a href="https://api.staging.open-eidas.eu" target="_blank" rel="noopener noreferrer">api.staging.open-eidas.eu</a>). L'application cliente de démonstration est hébergée sur <strong>GitHub Pages</strong> et accessible directement sur <a href="https://demo.open-eidas.eu" target="_blank" rel="noopener noreferrer">demo.open-eidas.eu</a>. Le code source est un <strong>prototype opérationnel open source</strong> pleinement fonctionnel (Rust, SoftHSM2, autorité de certification maison, journal chaîné SHA-256), testable en ligne comme en local. L'audit de qualification eIDAS / ANSSI reste à mener avant toute mise en production certifiée.
           </div>
         </div>
 
         <div class="hero-cta-group">
-          <a href="eidas.html" class="btn btn-primary">Comprendre le Cadre eIDAS</a>
+          <a href="https://demo.open-eidas.eu" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="gap: 0.6rem; font-size: 1.05rem; padding: 0.75rem 1.5rem;">
+            <span>🚀 Tester la Démo en Ligne</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="eidas.html" class="btn btn-outline">Comprendre le Cadre eIDAS</a>
           <a href="association.html" class="btn btn-outline">Découvrir l'Association</a>
+        </div>
+
+        <!-- Interactive Demo Feature Card -->
+        <div class="demo-showcase-card">
+          <div class="demo-showcase-header">
+            <div class="demo-live-badge">
+              <span class="demo-pulse-dot"></span>
+              <span>Démonstrateur Web Interactif</span>
+            </div>
+            <div class="demo-showcase-infra">
+              Démo hébergée sur <strong>GitHub Pages</strong> &bull; API Staging hébergée sur <strong>Scaleway</strong> (France)
+            </div>
+          </div>
+          <div class="demo-showcase-body">
+            <h3 class="demo-showcase-title">Expérimentez l'horodatage qualifié RFC&nbsp;3161 en temps réel</h3>
+            <p class="demo-showcase-desc">
+              Testez immédiatement le service dans votre navigateur sans installation ni création de compte. Glissez-déposez n'importe quel fichier&nbsp;: son empreinte cryptographique (SHA-256) est générée <strong>strictement en local</strong> sur votre poste et scellée en direct par notre autorité d'horodatage de staging.
+            </p>
+            <div class="demo-showcase-features">
+              <div class="demo-feature-item">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span><strong>Zéro transfert de fichier&nbsp;:</strong> Traitement 100&nbsp;% local dans le navigateur (Web Crypto API)</span>
+              </div>
+              <div class="demo-feature-item">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span><strong>Jeton RFC&nbsp;3161 certifié&nbsp;:</strong> Téléchargement du jeton ASN.1 et preuve d'antériorité</span>
+              </div>
+              <div class="demo-feature-item">
+                <svg width="18" height="20" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span><strong>Vérificateur intégré&nbsp;:</strong> Contrôle instantané de la signature et de la chaîne de confiance</span>
+              </div>
+            </div>
+            <div class="demo-showcase-actions">
+              <a href="https://demo.open-eidas.eu" target="_blank" rel="noopener noreferrer" class="btn btn-primary demo-btn-main">
+                <span>Lancer le Démonstrateur (demo.open-eidas.eu)</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <div class="demo-link-meta">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Accès libre &bull; Aucune inscription requise</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Terminal Card / Live staging demo -->
@@ -143,17 +210,17 @@
               <span class="dot dot-yellow"></span>
               <span class="dot dot-green"></span>
             </div>
-            <span class="terminal-title">test-staging-live.sh</span>
+            <span class="terminal-title">test-staging-scaleway.sh</span>
           </div>
           <div class="terminal-body">
             <pre><code><span style="color:#64748b;"># Calculer le hash d'un document et obtenir un jeton d'horodatage RFC 3161
-# — sur le staging public, en direct (non certifié eIDAS à ce stade)</span>
+# — sur le staging public souverain Scaleway (api.staging.open-eidas.eu)</span>
 DIGEST=$(sha256sum document.pdf | cut -d' ' -f1)
 curl -s -X POST https://api.staging.open-eidas.eu/api/v1/timestamp \
      -H 'Content-Type: application/json' \
      -d "{\"hash\":\"$DIGEST\"}"
 
-<span style="color:#eab308;">✔ Jeton émis (staging public) — Pile cryptographique opérationnelle (HSM + UTC)</span></code></pre>
+<span style="color:#eab308;">✔ Jeton émis (staging Scaleway) — Pile cryptographique opérationnelle (HSM + UTC)</span></code></pre>
           </div>
         </div>
 
@@ -336,11 +403,17 @@ curl -s -X POST http://localhost:8318/api/v1/timestamp \
             <div class="service-content">
               <h3>
                 Horodatage RFC&nbsp;3161 (TSA)
-                <span class="service-status status-roadmap">Staging public en ligne &bull; Qualification eIDAS à venir</span>
+                <span class="service-status status-staging">Staging Scaleway en ligne &bull; Démo web disponible</span>
               </h3>
               <p class="card-desc">
-                Preuve d'intégrité temporelle et d'antériorité juridique opposable. Le premier service est <strong>un prototype opérationnel</strong> (Rust, autorité de certification maison), déployé sur un <strong>staging public</strong> et testable en local via Docker avec SoftHSM2. Il applique rigoureusement les normes ETSI EN 319 421 / 422 avec clés sous HSM, avant la démarche de qualification formelle.
+                Preuve d'intégrité temporelle et d'antériorité juridique opposable. Le premier service est <strong>un prototype opérationnel</strong> (Rust, SoftHSM2, autorité de certification maison), déployé sur notre <strong>staging public souverain hébergé chez Scaleway</strong> (<a href="https://api.staging.open-eidas.eu" target="_blank" rel="noopener noreferrer">api.staging.open-eidas.eu</a>) et immédiatement testable via notre <strong><a href="https://demo.open-eidas.eu" target="_blank" rel="noopener noreferrer">démonstrateur web interactif (demo.open-eidas.eu)</a></strong> hébergé sur GitHub ou en local via Docker. Il applique rigoureusement les normes ETSI EN 319 421 / 422 avant la démarche de qualification formelle.
               </p>
+              <div style="margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="https://demo.open-eidas.eu" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.4rem 0.85rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+                  <span>Tester la Démo Web</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -599,11 +672,22 @@ curl -s -X POST http://localhost:8318/api/v1/timestamp \
                 </summary>
                 <div class="faq-content">
                   <p>
-                    Les serveurs et les modules matériels sont hébergés <strong>exclusivement au sein de l'Union Européenne</strong> dans des datacenters souverains certifiés ISO 27001 et SecNumCloud, à l'abri des lois extraterritoriales étrangères (Cloud Act, FISA).
+                    L'écosystème technique d'Open&nbsp;eIDAS repose sur un découpage rigoureux de ses hébergements, garantissant la souveraineté et le respect strict du RGPD&nbsp;:
                   </p>
-                  <p>
-                    Les clés privées racines sont hébergées au sein de <strong>modules matériels de sécurité (HSM)</strong> qualifiés QSCD (Common Criteria EAL4+ / EN 419 221-5). Toute manipulation critique sur les clés est soumise au <strong>principe du double contrôle (dual control)</strong> sous procès-verbal de cérémonie de clés.
-                  </p>
+                  <ul>
+                    <li>
+                      <strong>Infrastructure PKI &amp; API de Staging (Scaleway)&nbsp;:</strong> Le banc d'expérimentation cryptographique et l'autorité d'horodatage (<code>api.staging.open-eidas.eu</code>) sont hébergés en France par l'acteur cloud souverain <strong>Scaleway</strong> dans des datacenters parisiens certifiés ISO 27001, immunisés contre les lois extraterritoriales étrangères (Cloud Act, FISA)&nbsp;;
+                    </li>
+                    <li>
+                      <strong>Démonstrateur Web Interactif (GitHub Pages)&nbsp;:</strong> L'application web d'expérimentation (<a href="https://demo.open-eidas.eu" target="_blank" rel="noopener noreferrer" style="color: var(--brand-blue); text-decoration: underline;">demo.open-eidas.eu</a>) est hébergée sur <strong>GitHub Pages</strong>. L'exécution s'effectue intégralement côté client dans votre navigateur (le calcul du hash SHA-256 est local) sans aucun transfert de fichier vers GitHub&nbsp;;
+                    </li>
+                    <li>
+                      <strong>Site Institutionnel &amp; Messagerie (Infomaniak)&nbsp;:</strong> Le site web officiel (<code>open-eidas.eu</code>) et les emails de contact sont hébergés en Suisse par <strong>Infomaniak Network SA</strong>, territoire bénéficiant d'une décision d'adéquation formelle de la Commission Européenne au RGPD&nbsp;;
+                    </li>
+                    <li>
+                      <strong>Cible de Production Qualifiée eIDAS&nbsp;:</strong> Pour la qualification officielle de pleine valeur probante (Article 41 eIDAS), les clés de confiance seront opérées sous <strong>modules matériels de sécurité (HSM)</strong> qualifiés QSCD (Common Criteria EAL4+ / EN 419 221-5) sous principe strict du double contrôle (<em>dual control</em>) dans des datacenters souverains qualifiés <strong>SecNumCloud</strong>.
+                    </li>
+                  </ul>
                 </div>
               </details>
             </div>
@@ -630,7 +714,7 @@ curl -s -X POST http://localhost:8318/api/v1/timestamp \
                   </p>
                   <ul>
                     <li><strong>1. Prototype Open Source (Actuel)&nbsp;:</strong> Le moteur d'horodatage, en Rust, est opérationnel et disponible sur GitHub. Tout développeur peut le cloner et le tester immédiatement en local via Docker avec SoftHSM2 et une autorité de certification maison&nbsp;;</li>
-                    <li><strong>2. Staging Public (En ligne)&nbsp;:</strong> L'infrastructure d'hébergement et les points de terminaison d'API de test publics sont déployés et interrogeables&nbsp;;</li>
+                    <li><strong>2. Staging Public Scaleway &amp; Démonstrateur GitHub (En ligne)&nbsp;:</strong> L'infrastructure PKI de test et les points d'accès API sont déployés sur le cloud souverain <strong>Scaleway</strong> (<a href="https://api.staging.open-eidas.eu" target="_blank" rel="noopener noreferrer">api.staging.open-eidas.eu</a>) et un démonstrateur interactif hébergé sur <strong>GitHub</strong> est accessible en direct sur <a href="https://demo.open-eidas.eu" target="_blank" rel="noopener noreferrer">demo.open-eidas.eu</a>&nbsp;;</li>
                     <li><strong>3. Qualification eIDAS de Production&nbsp;:</strong> Audit formel de conformité mené par un organisme accrédité (tel que LSTI) selon les normes ETSI EN 319 401 et EN 319 421 / 422, rapport CAR et inscription par l'ANSSI sur la liste de confiance européenne (TSL).</li>
                   </ul>
                 </div>
@@ -716,6 +800,7 @@ curl -s -X POST http://localhost:8318/api/v1/timestamp \
 
       <ul class="footer-links">
         <li><a href="mailto:contact@open-eidas.eu">contact@open-eidas.eu</a></li>
+        <li><a href="https://demo.open-eidas.eu" target="_blank" rel="noopener noreferrer">Démonstrateur Web</a></li>
         <li><a href="https://github.com/open-eidas/open-eidas" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a></li>
         <li><a href="https://github.com/open-eidas/organisation" target="_blank" rel="noopener noreferrer">Statuts &amp; Gouvernance</a></li>
         <li><a href="eidas.html">Comprendre eIDAS</a></li>
