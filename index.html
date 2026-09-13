@@ -126,7 +126,7 @@
         <div class="staging-banner" role="status">
           <span class="staging-banner-icon">ℹ️</span>
           <div class="staging-banner-content">
-            <strong>Projet en cours de développement&nbsp;— Staging en cours de déploiement&nbsp;:</strong> L'environnement public de staging n'est pas encore déployé en ligne et le service n'est pas encore certifié eIDAS. Le code source est un <strong>prototype opérationnel open source</strong> pleinement fonctionnel et testable en local (Go, SoftHSM2, OpenXPKI, journal chaîné SHA-256). L'infrastructure de staging ouverte puis l'audit de qualification eIDAS / ANSSI sont en cours de mise en place.
+            <strong>Staging public en ligne&nbsp;— projet en cours de qualification&nbsp;:</strong> L'environnement de staging public est déployé et interrogeable (<a href="https://api.staging.open-eidas.eu" target="_blank" rel="noopener noreferrer">api.staging.open-eidas.eu</a>), mais le service n'est <strong>pas encore certifié eIDAS</strong>. Le code source est un <strong>prototype opérationnel open source</strong> pleinement fonctionnel (Rust, SoftHSM2, autorité de certification maison, journal chaîné SHA-256), testable en local comme sur ce staging. L'audit de qualification eIDAS / ANSSI reste à mener avant toute mise en production certifiée.
           </div>
         </div>
 
@@ -135,8 +135,30 @@
           <a href="association.html" class="btn btn-outline">Découvrir l'Association</a>
         </div>
 
-        <!-- Terminal Card / Local Prototype demo -->
+        <!-- Terminal Card / Live staging demo -->
         <div class="terminal-card">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="terminal-title">test-staging-live.sh</span>
+          </div>
+          <div class="terminal-body">
+            <pre><code><span style="color:#64748b;"># Calculer le hash d'un document et obtenir un jeton d'horodatage RFC 3161
+# — sur le staging public, en direct (non certifié eIDAS à ce stade)</span>
+DIGEST=$(sha256sum document.pdf | cut -d' ' -f1)
+curl -s -X POST https://api.staging.open-eidas.eu/api/v1/timestamp \
+     -H 'Content-Type: application/json' \
+     -d "{\"hash\":\"$DIGEST\"}"
+
+<span style="color:#eab308;">✔ Jeton émis (staging public) — Pile cryptographique opérationnelle (HSM + UTC)</span></code></pre>
+          </div>
+        </div>
+
+        <!-- Terminal Card / Local Prototype demo -->
+        <div class="terminal-card" style="margin-top: 1rem;">
           <div class="terminal-header">
             <div class="terminal-dots">
               <span class="dot dot-red"></span>
@@ -146,17 +168,14 @@
             <span class="terminal-title">test-prototype-local.sh</span>
           </div>
           <div class="terminal-body">
-            <pre><code><span style="color:#64748b;"># 1. Cloner et lancer le prototype en local via Docker (SoftHSM2 + TSA Engine)</span>
+            <pre><code><span style="color:#64748b;"># Ou en local via Docker (SoftHSM2 + autorité de certification maison)</span>
 git clone https://github.com/open-eidas/open-eidas.git &amp;&amp; cd open-eidas
 docker compose up -d
 
-<span style="color:#64748b;"># 2. Calculer le hash d'un document et obtenir un jeton d'horodatage RFC 3161</span>
 DIGEST=$(sha256sum document.pdf | cut -d' ' -f1)
 curl -s -X POST http://localhost:8318/api/v1/timestamp \
      -H 'Content-Type: application/json' \
-     -d "{\"hash\":\"$DIGEST\"}"
-
-<span style="color:#eab308;">✔ Jeton émis (Prototype local) — Pile cryptographique opérationnelle (HSM + UTC)</span></code></pre>
+     -d "{\"hash\":\"$DIGEST\"}"</code></pre>
           </div>
         </div>
       </div>
@@ -317,10 +336,10 @@ curl -s -X POST http://localhost:8318/api/v1/timestamp \
             <div class="service-content">
               <h3>
                 Horodatage RFC&nbsp;3161 (TSA)
-                <span class="service-status status-roadmap">Prototype Opérationnel &bull; Staging en préparation</span>
+                <span class="service-status status-roadmap">Staging public en ligne &bull; Qualification eIDAS à venir</span>
               </h3>
               <p class="card-desc">
-                Preuve d'intégrité temporelle et d'antériorité juridique opposable. Le premier service est <strong>actuellement un prototype opérationnel développé en Go</strong>, testable en local via Docker avec SoftHSM2 et OpenXPKI. L'infrastructure de staging public est en cours de déploiement et appliquera rigoureusement les normes ETSI EN 319 421 / 422 avec clés sous HSM, avant la démarche de qualification formelle.
+                Preuve d'intégrité temporelle et d'antériorité juridique opposable. Le premier service est <strong>un prototype opérationnel</strong> (Rust, autorité de certification maison), déployé sur un <strong>staging public</strong> et testable en local via Docker avec SoftHSM2. Il applique rigoureusement les normes ETSI EN 319 421 / 422 avec clés sous HSM, avant la démarche de qualification formelle.
               </p>
             </div>
           </div>
@@ -610,8 +629,8 @@ curl -s -X POST http://localhost:8318/api/v1/timestamp \
                     Le projet avance selon une feuille de route rigoureuse en trois étapes&nbsp;:
                   </p>
                   <ul>
-                    <li><strong>1. Prototype Open Source (Actuel)&nbsp;:</strong> Le moteur d'horodatage en Go est opérationnel et disponible sur GitHub. Tout développeur peut le cloner et le tester immédiatement en local via Docker avec SoftHSM2 et OpenXPKI&nbsp;;</li>
-                    <li><strong>2. Staging Public (En cours de déploiement)&nbsp;:</strong> L'infrastructure d'hébergement sécurisée et les points de terminaison d'API de test publics sont en cours de déploiement technique&nbsp;;</li>
+                    <li><strong>1. Prototype Open Source (Actuel)&nbsp;:</strong> Le moteur d'horodatage, en Rust, est opérationnel et disponible sur GitHub. Tout développeur peut le cloner et le tester immédiatement en local via Docker avec SoftHSM2 et une autorité de certification maison&nbsp;;</li>
+                    <li><strong>2. Staging Public (En ligne)&nbsp;:</strong> L'infrastructure d'hébergement et les points de terminaison d'API de test publics sont déployés et interrogeables&nbsp;;</li>
                     <li><strong>3. Qualification eIDAS de Production&nbsp;:</strong> Audit formel de conformité mené par un organisme accrédité (tel que LSTI) selon les normes ETSI EN 319 401 et EN 319 421 / 422, rapport CAR et inscription par l'ANSSI sur la liste de confiance européenne (TSL).</li>
                   </ul>
                 </div>
